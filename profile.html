@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anna B. â€” Seller Profile â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="hover:text-primary transition" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="hover:text-primary transition" data-i18n="nav_dashboard">Dashboard</a></div>
+<div class="flex items-center gap-3"><a href="cart.html" class="relative p-2 hover:text-primary transition"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a><div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button><a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a><button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button></div>
+</div>
+</nav>
+<div id="mobile-menu" class="mobile-menu"><button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button><a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a></div>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<!-- Profile Header -->
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden mb-8">
+<div class="hero-gradient h-32 md:h-48 relative"></div>
+<div class="px-6 pb-6 -mt-12 md:-mt-16 relative">
+<div class="flex flex-col md:flex-row items-start md:items-end gap-4">
+<img src="https://i.pravatar.cc/128?img=11" class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-4 border-[var(--bg-card)] object-cover" alt="Anna B.">
+<div class="flex-1">
+<div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+<h1 class="text-2xl font-800">Anna B.</h1>
+<div class="flex items-center gap-2"><span class="badge badge-blue">Top Rated</span><span class="badge badge-purple">Pro Seller</span></div>
+</div>
+<p class="text-[var(--text-secondary)] mt-1">Award-winning graphic designer specializing in brand identity, logos, and visual systems. 8+ years of experience.</p>
+</div>
+<div class="flex gap-3 mt-4 md:mt-0">
+<button class="btn-primary text-sm"><i class="fas fa-envelope mr-2"></i data-i18n="footer_contact">Contact</button>
+<button class="btn-outline text-sm"><i class="fas fa-share mr-2"></i>Share</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 text-center"><div class="text-2xl font-800 text-primary">4.9</div><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜…</div><div class="text-sm text-[var(--text-secondary)] mt-1">Rating</div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 text-center"><div class="text-2xl font-800">380</div><div class="text-sm text-[var(--text-secondary)] mt-1">Reviews</div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 text-center"><div class="text-2xl font-800">520</div><div class="text-sm text-[var(--text-secondary)] mt-1">Projects Done</div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 text-center"><div class="text-2xl font-800">2h</div><div class="text-sm text-[var(--text-secondary)] mt-1">Avg Response</div></div>
+</div>
+<!-- Info -->
+<div class="grid md:grid-cols-3 gap-4 mb-8 text-sm">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 flex items-center gap-3"><i class="fas fa-map-marker-alt text-primary"></i><div><div class="text-[var(--text-secondary)]">Location</div><div class="font-semibold">San Francisco, CA</div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 flex items-center gap-3"><i class="fas fa-calendar text-primary"></i><div><div class="text-[var(--text-secondary)]">Member Since</div><div class="font-semibold">March 2021</div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 flex items-center gap-3"><i class="fas fa-globe text-primary"></i><div><div class="text-[var(--text-secondary)]">Languages</div><div class="font-semibold">English, Spanish</div></div></div>
+</div>
+<!-- Listings -->
+<h2 class="text-xl font-800 mb-4">Listings by Anna</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+<article class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/ap1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Custom Logo Design</h3><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… (215)</div><div class="font-bold text-primary">$89</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/ap2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Brand Identity Package</h3><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† (98)</div><div class="font-bold text-primary">$149</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/ap3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Social Media Graphics</h3><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… (67)</div><div class="font-bold text-primary">$59</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+</div>
+<!-- Reviews -->
+<h2 class="text-xl font-800 mb-4">Recent Reviews</h2>
+<div class="space-y-4">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5"><div class="flex items-center gap-3 mb-3"><img src="https://i.pravatar.cc/40?img=33" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Michael R.</div><div class="text-sm text-[var(--text-secondary)]">Custom Logo Design Â· 2 days ago</div></div><div class="ml-auto stars text-sm">â˜…â˜…â˜…â˜…â˜…</div></div><p class="text-[var(--text-secondary)]">Anna is incredibly talented! She took my vague idea and turned it into a stunning logo.</p></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5"><div class="flex items-center gap-3 mb-3"><img src="https://i.pravatar.cc/40?img=44" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Emily T.</div><div class="text-sm text-[var(--text-secondary)]">Brand Identity Package Â· 1 week ago</div></div><div class="ml-auto stars text-sm">â˜…â˜…â˜…â˜…â˜…</div></div><p class="text-[var(--text-secondary)]">The complete brand package was exactly what my startup needed. Highly recommended!</p></div>
+</div>
+</main>
+<footer class="py-8 px-4 border-t border-[var(--border)] mt-8">
+<div class="max-w-7xl mx-auto text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

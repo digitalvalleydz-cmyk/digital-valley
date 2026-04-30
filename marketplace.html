@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketplace â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="text-primary" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="hover:text-primary transition" data-i18n="nav_dashboard">Dashboard</a>
+</div>
+<div class="hidden md:flex items-center bg-[var(--bg)] border border-[var(--border)] rounded-lg px-3 py-2 w-72">
+<i class="fas fa-search text-[var(--text-secondary)] text-sm mr-2"></i>
+<input id="search-input" type="text" placeholder="Search products..." data-i18n="search_placeholder" class="bg-transparent outline-none text-sm w-full text-[var(--text)]">
+</div>
+<div class="flex items-center gap-3">
+<a href="cart.html" class="relative p-2 hover:text-primary transition"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+<div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button>
+<a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
+<button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</nav>
+<div id="mobile-menu" class="mobile-menu">
+<button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+<a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a><a href="register.html" data-i18n="nav_register">Register</a>
+</div>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<h1 class="text-3xl font-800 mb-2" data-i18n="nav_marketplace">Marketplace</h1>
+<p class="text-[var(--text-secondary)] mb-6">Discover thousands of digital products and services</p>
+<!-- Tabs -->
+<div data-tabs class="flex gap-2 border-b border-[var(--border)] mb-6">
+<button class="tab-btn active" data-tab="tab-services">Services</button>
+<button class="tab-btn" data-tab="tab-products" data-i18n="stats_products">Digital Products</button>
+</div>
+<!-- Filters -->
+<div class="grid md:grid-cols-4 gap-4 mb-8 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4">
+<div><label class="form-label text-sm">Category</label><select class="form-input text-sm"><option>All Categories</option><option data-i18n="cat_design">Design</option><option data-i18n="cat_development">Development</option><option data-i18n="cat_writing">Writing</option><option data-i18n="cat_marketing">Marketing</option><option data-i18n="cat_music">Music</option><option data-i18n="cat_video">Video</option></select></div>
+<div><label class="form-label text-sm">Price Range</label><input type="range" id="price-range" min="0" max="500" value="250"><div class="text-sm text-[var(--text-secondary)] mt-1">Up to <span id="price-range-val">$250</span></div></div>
+<div><label class="form-label text-sm">Sort By</label><select class="form-input text-sm"><option>Newest</option><option>Most Popular</option><option>Lowest Price</option><option>Highest Rated</option></select></div>
+<div class="flex items-end"><button class="btn-primary w-full text-sm">Apply Filters</button></div>
+</div>
+<!-- Services Tab -->
+<div id="tab-services" class="tab-content">
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1">Custom Logo & Brand Identity</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=11" class="w-6 h-6 rounded-full" alt="">Anna B.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(215)</span></div><div class="font-bold text-primary">$89</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_development">Development</span><h3 class="card-title font-bold mb-1">Full-Stack Web App Development</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=14" class="w-6 h-6 rounded-full" alt="">David K.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(142)</span></div><div class="font-bold text-primary">$299</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2" data-i18n="cat_writing">Writing</span><h3 class="card-title font-bold mb-1">Professional Copywriting Service</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=16" class="w-6 h-6 rounded-full" alt="">Rachel M.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(98)</span></div><div class="font-bold text-primary">$59</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m4/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2" data-i18n="cat_marketing">Marketing</span><h3 class="card-title font-bold mb-1">Social Media Strategy Plan</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=18" class="w-6 h-6 rounded-full" alt="">Tom H.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(76)</span></div><div class="font-bold text-primary">$149</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m5/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1">UI/UX Mobile App Design</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=20" class="w-6 h-6 rounded-full" alt="">Nina P.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(183)</span></div><div class="font-bold text-primary">$199</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m6/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_video">Video</span><h3 class="card-title font-bold mb-1">Explainer Video Production</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=22" class="w-6 h-6 rounded-full" alt="">Studio X</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(54)</span></div><div class="font-bold text-primary">$349</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+</div>
+</div>
+<!-- Products Tab -->
+<div id="tab-products" class="tab-content" style="display:none">
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2">UI Kit</span><h3 class="card-title font-bold mb-1">Starter Dashboard UI Kit</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=25" class="w-6 h-6 rounded-full" alt="">PixelCraft</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(278)</span></div><div class="font-bold text-primary">$29</div></div><button onclick="addToCart({id:'dp1',title:'Starter Dashboard UI Kit',price:29})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2">eBook</span><h3 class="card-title font-bold mb-1">JavaScript Mastery Course</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=28" class="w-6 h-6 rounded-full" alt="">CodePro</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(195)</span></div><div class="font-bold text-primary">$49</div></div><button onclick="addToCart({id:'dp2',title:'JavaScript Mastery Course',price:49})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2">Audio</span><h3 class="card-title font-bold mb-1">Cinematic Sound FX Bundle</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=30" class="w-6 h-6 rounded-full" alt="">SoundLab</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(112)</span></div><div class="font-bold text-primary">$35</div></div><button onclick="addToCart({id:'dp3',title:'Cinematic Sound FX Bundle',price:35})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+</div>
+</div>
+<!-- Skeleton Loader (hidden by default, for demo) -->
+<div id="skeleton-demo" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 hidden">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><div class="skeleton skeleton-img"></div><div class="p-4"><div class="skeleton skeleton-text w-20 mb-2"></div><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text w-32 mt-2"></div><div class="skeleton skeleton-text w-full mt-3" style="height:36px"></div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><div class="skeleton skeleton-img"></div><div class="p-4"><div class="skeleton skeleton-text w-20 mb-2"></div><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text w-32 mt-2"></div><div class="skeleton skeleton-text w-full mt-3" style="height:36px"></div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><div class="skeleton skeleton-img"></div><div class="p-4"><div class="skeleton skeleton-text w-20 mb-2"></div><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text w-32 mt-2"></div><div class="skeleton skeleton-text w-full mt-3" style="height:36px"></div></div></div>
+</div>
+</main>
+<footer class="py-8 px-4 border-t border-[var(--border)]">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold"><i class="fas fa-store text-primary"></i>Digital<span class="text-primary">Hub</span></a>
+<div class="text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+<div class="flex gap-3"><a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a></div>
+</div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

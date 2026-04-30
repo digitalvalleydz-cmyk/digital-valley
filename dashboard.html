@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="hover:text-primary transition" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="text-primary" data-i18n="nav_dashboard">Dashboard</a></div>
+<div class="flex items-center gap-3">
+<a href="cart.html" class="relative p-2 hover:text-primary transition"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+<div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button>
+<a href="profile.html" class="hidden md:flex items-center gap-2"><img src="https://i.pravatar.cc/32?img=11" class="w-8 h-8 rounded-full" alt=""><span class="text-sm font-semibold">Anna B.</span></a>
+<button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</nav>
+<div id="mobile-menu" class="mobile-menu"><button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button><a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="profile.html">Profile</a></div>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<!-- Welcome -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div><h1 class="text-3xl font-800">Welcome back, Anna! ðŸ‘‹</h1><p class="text-[var(--text-secondary)]">Here's an overview of your store performance</p></div>
+<div class="flex gap-3">
+<a href="sell.html" class="btn-primary text-sm"><i class="fas fa-plus mr-2"></i>Add New Listing</a>
+<a href="profile.html" class="btn-outline text-sm"><i class="fas fa-user mr-2"></i>View Profile</a>
+</div>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5 card-hover">
+<div class="flex items-center justify-between mb-3"><div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/40 rounded-lg flex items-center justify-center text-primary"><i class="fas fa-shopping-bag"></i></div><span class="badge badge-green text-xs">+12%</span></div>
+<div class="text-2xl font-800">156</div><div class="text-sm text-[var(--text-secondary)]">Total Sales</div>
+</div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5 card-hover">
+<div class="flex items-center justify-between mb-3"><div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-lg flex items-center justify-center text-green-600"><i class="fas fa-dollar-sign"></i></div><span class="badge badge-green text-xs">+8%</span></div>
+<div class="text-2xl font-800">$12,450</div><div class="text-sm text-[var(--text-secondary)]">Total Earnings</div>
+</div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5 card-hover">
+<div class="flex items-center justify-between mb-3"><div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/40 rounded-lg flex items-center justify-center text-accent"><i class="fas fa-list"></i></div></div>
+<div class="text-2xl font-800">8</div><div class="text-sm text-[var(--text-secondary)]">Active Listings</div>
+</div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5 card-hover">
+<div class="flex items-center justify-between mb-3"><div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/40 rounded-lg flex items-center justify-center text-orange-500"><i class="fas fa-clock"></i></div></div>
+<div class="text-2xl font-800">5</div><div class="text-sm text-[var(--text-secondary)]">Pending Orders</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="flex flex-wrap gap-3 mb-8">
+<button class="btn-outline text-sm"><i class="fas fa-wallet mr-2"></i>Withdraw Earnings</button>
+<button class="btn-outline text-sm"><i class="fas fa-chart-bar mr-2"></i>View Analytics</button>
+<button class="btn-outline text-sm"><i class="fas fa-cog mr-2"></i>Settings</button>
+</div>
+<!-- Recent Orders -->
+<section class="mb-10">
+<h2 class="text-xl font-800 mb-4">Recent Orders</h2>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden table-container">
+<table>
+<thead><tr class="bg-[var(--bg)]"><th>Order ID</th><th>Product</th><th>Buyer</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+<tbody>
+<tr><td class="font-mono text-sm">#ORD-2048</td><td>Custom Logo Design</td><td class="flex items-center gap-2"><img src="https://i.pravatar.cc/24?img=33" class="w-6 h-6 rounded-full" alt="">Michael R.</td><td class="font-semibold">$89</td><td><span class="badge badge-green">Completed</span></td><td class="text-[var(--text-secondary)]">Apr 25</td></tr>
+<tr><td class="font-mono text-sm">#ORD-2047</td><td>Brand Identity Pack</td><td class="flex items-center gap-2"><img src="https://i.pravatar.cc/24?img=35" class="w-6 h-6 rounded-full" alt="">Sarah L.</td><td class="font-semibold">$149</td><td><span class="badge badge-orange">In Progress</span></td><td class="text-[var(--text-secondary)]">Apr 24</td></tr>
+<tr><td class="font-mono text-sm">#ORD-2046</td><td>Logo Redesign</td><td class="flex items-center gap-2"><img src="https://i.pravatar.cc/24?img=37" class="w-6 h-6 rounded-full" alt="">James K.</td><td class="font-semibold">$69</td><td><span class="badge badge-blue">Pending</span></td><td class="text-[var(--text-secondary)]">Apr 23</td></tr>
+<tr><td class="font-mono text-sm">#ORD-2045</td><td>Social Media Kit</td><td class="flex items-center gap-2"><img src="https://i.pravatar.cc/24?img=40" class="w-6 h-6 rounded-full" alt="">Emma W.</td><td class="font-semibold">$59</td><td><span class="badge badge-green">Completed</span></td><td class="text-[var(--text-secondary)]">Apr 22</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- My Listings -->
+<section>
+<h2 class="text-xl font-800 mb-4">My Listings</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden card-hover"><img src="https://picsum.photos/seed/ml1/400/200" alt="" class="w-full h-36 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Custom Logo Design</h3><div class="flex items-center justify-between text-sm mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… (215)</div><div class="font-bold text-primary">$89</div></div><div class="flex gap-2"><button class="btn-outline flex-1 text-sm py-2">Edit</button><button class="flex-1 text-sm py-2 border border-red-300 text-red-500 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/20 transition font-semibold">Delete</button></div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden card-hover"><img src="https://picsum.photos/seed/ml2/400/200" alt="" class="w-full h-36 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Brand Identity Package</h3><div class="flex items-center justify-between text-sm mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† (98)</div><div class="font-bold text-primary">$149</div></div><div class="flex gap-2"><button class="btn-outline flex-1 text-sm py-2">Edit</button><button class="flex-1 text-sm py-2 border border-red-300 text-red-500 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/20 transition font-semibold">Delete</button></div></div></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden card-hover"><img src="https://picsum.photos/seed/ml3/400/200" alt="" class="w-full h-36 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Social Media Graphics</h3><div class="flex items-center justify-between text-sm mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… (67)</div><div class="font-bold text-primary">$59</div></div><div class="flex gap-2"><button class="btn-outline flex-1 text-sm py-2">Edit</button><button class="flex-1 text-sm py-2 border border-red-300 text-red-500 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/20 transition font-semibold">Delete</button></div></div></div>
+</div>
+</section>
+</main>
+<footer class="py-8 px-4 border-t border-[var(--border)] mt-8">
+<div class="max-w-7xl mx-auto text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

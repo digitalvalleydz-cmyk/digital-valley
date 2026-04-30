@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cart â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="hover:text-primary transition" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="hover:text-primary transition" data-i18n="nav_dashboard">Dashboard</a></div>
+<div class="flex items-center gap-3"><div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button><a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a><button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button></div>
+</div>
+</nav>
+<div id="mobile-menu" class="mobile-menu"><button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button><a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a></div>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<h1 class="text-3xl font-800 mb-2">Shopping Cart</h1>
+<p class="text-[var(--text-secondary)] mb-8">Review your items and proceed to checkout</p>
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Cart Items -->
+<div class="lg:col-span-2">
+<div id="cart-items" class="space-y-4">
+<!-- Populated by JS -->
+</div>
+<div id="cart-empty" class="text-center py-16 hidden">
+<i class="fas fa-shopping-cart text-5xl text-[var(--text-secondary)] mb-4"></i>
+<h2 class="text-xl font-bold mb-2" data-i18n="cart_empty">Your cart is empty</h2>
+<p class="text-[var(--text-secondary)] mb-6" data-i18n="cart_empty_desc">Browse our marketplace to find amazing products</p>
+<a href="marketplace.html" class="btn-primary" data-i18n="hero_browse">Browse Marketplace</a>
+</div>
+</div>
+<!-- Checkout Sidebar -->
+<div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 sticky top-20">
+<h2 class="text-lg font-800 mb-4">Order Summary</h2>
+<div class="space-y-3 text-sm mb-4">
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Subtotal</span><span id="subtotal" class="font-semibold">$0.00</span></div>
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Platform Fee</span><span id="fee" class="font-semibold">$0.00</span></div>
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Tax</span><span class="font-semibold">$0.00</span></div>
+</div>
+<div class="border-t border-[var(--border)] pt-4 mb-6">
+<div class="flex justify-between text-lg"><span class="font-800">Total</span><span id="total" class="font-800 text-primary">$0.00</span></div>
+</div>
+<!-- Promo Code -->
+<div class="flex gap-2 mb-6">
+<input type="text" class="form-input text-sm flex-1" placeholder="Promo code">
+<button class="btn-outline text-sm px-4">Apply</button>
+</div>
+<!-- Payment -->
+<h3 class="font-bold mb-3 text-sm">Payment Method</h3>
+<div class="space-y-2 mb-6">
+<label class="flex items-center gap-3 border border-[var(--border)] rounded-lg p-3 cursor-pointer hover:border-primary transition"><input type="radio" name="payment" class="accent-primary" checked><i class="fab fa-cc-visa text-xl text-blue-600"></i><span class="text-sm font-medium">Credit Card</span></label>
+<label class="flex items-center gap-3 border border-[var(--border)] rounded-lg p-3 cursor-pointer hover:border-primary transition"><input type="radio" name="payment" class="accent-primary"><i class="fab fa-paypal text-xl text-blue-500"></i><span class="text-sm font-medium">PayPal</span></label>
+<label class="flex items-center gap-3 border border-[var(--border)] rounded-lg p-3 cursor-pointer hover:border-primary transition"><input type="radio" name="payment" class="accent-primary"><i class="fab fa-bitcoin text-xl text-orange-500"></i><span class="text-sm font-medium">Crypto</span></label>
+</div>
+<button id="checkout-btn" class="btn-primary w-full py-3 text-lg"><i class="fas fa-lock mr-2"></i>Checkout</button>
+<p class="text-xs text-[var(--text-secondary)] text-center mt-3"><i class="fas fa-shield-alt mr-1"></i>Secured with SSL encryption</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-8 px-4 border-t border-[var(--border)] mt-8">
+<div class="max-w-7xl mx-auto text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById('cart-items');
+  const empty = document.getElementById('cart-empty');
+  if (!cart.length) { container.innerHTML = ''; empty.classList.remove('hidden'); updateTotals(0); return; }
+  empty.classList.add('hidden');
+  container.innerHTML = cart.map(item => `
+    <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 flex items-center gap-4">
+      <div class="w-16 h-16 bg-[var(--bg)] rounded-lg flex items-center justify-center text-2xl text-primary"><i class="fas fa-box"></i></div>
+      <div class="flex-1"><h3 class="font-bold">${item.title}</h3><p class="text-sm text-[var(--text-secondary)]">Digital Product</p></div>
+      <div class="text-lg font-800 text-primary">$${item.price}</div>
+      <button onclick="removeFromCart('${item.id}');renderCart()" class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition"><i class="fas fa-trash"></i></button>
+    </div>`).join('');
+  const subtotal = cart.reduce((s, i) => s + i.price, 0);
+  updateTotals(subtotal);
+}
+function updateTotals(subtotal) {
+  const fee = subtotal * 0.05;
+  document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('fee').textContent = '$' + fee.toFixed(2);
+  document.getElementById('total').textContent = '$' + (subtotal + fee).toFixed(2);
+}
+renderCart();
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  if (!getCart().length) return showToast('Cart is empty');
+  showToast('Order placed successfully! ðŸŽ‰');
+  localStorage.removeItem('cart');
+  renderCart();
+  updateCartCount();
+});
+</script>
+</body>
+</html>
+

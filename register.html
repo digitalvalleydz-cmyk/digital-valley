@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="flex items-center gap-3"><div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button><a href="login.html" class="btn-outline text-sm" data-i18n="nav_login">Login</a></div>
+</div>
+</nav>
+<main class="min-h-[80vh] flex items-center justify-center px-4 py-16">
+<div class="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 shadow-lg animate-fade-in-up">
+<div class="text-center mb-8"><div class="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center text-accent text-3xl"><i class="fas fa-user-plus"></i></div><h1 class="text-2xl font-800" data-i18n="register_title">Create Account</h1><p class="text-[var(--text-secondary)] mt-1" data-i18n="register_desc">Join the DigitalValley community</p></div>
+<form data-validate>
+<div class="grid grid-cols-2 gap-4 mb-4"><div><label class="form-label" for="fname">First Name</label><input id="fname" type="text" class="form-input" placeholder="John" required><p class="field-error text-red-500 text-sm mt-1"></p></div><div><label class="form-label" for="lname">Last Name</label><input id="lname" type="text" class="form-input" placeholder="Doe" required><p class="field-error text-red-500 text-sm mt-1"></p></div></div>
+<div class="mb-4"><label class="form-label" for="email">Email</label><input id="email" type="email" class="form-input" placeholder="you@example.com" required><p class="field-error text-red-500 text-sm mt-1"></p></div>
+<div class="mb-4"><label class="form-label" for="username">Username</label><input id="username" type="text" class="form-input" placeholder="johndoe" required><p class="field-error text-red-500 text-sm mt-1"></p></div>
+<div class="mb-4"><label class="form-label" for="password">Password</label><input id="password" type="password" class="form-input" placeholder="Min 8 characters" required minlength="8"><p class="field-error text-red-500 text-sm mt-1"></p></div>
+<div class="mb-4"><label class="form-label" for="confirm-password">Confirm Password</label><input id="confirm-password" type="password" class="form-input" placeholder="Re-enter password" required><p class="field-error text-red-500 text-sm mt-1"></p></div>
+<div class="mb-4"><label class="form-label">Account Type</label><div class="grid grid-cols-2 gap-3"><label class="flex items-center gap-2 border border-[var(--border)] rounded-lg p-3 cursor-pointer hover:border-primary transition"><input type="radio" name="type" value="buyer" class="accent-primary" checked> <span class="text-sm font-medium">Buyer</span></label><label class="flex items-center gap-2 border border-[var(--border)] rounded-lg p-3 cursor-pointer hover:border-primary transition"><input type="radio" name="type" value="seller" class="accent-primary"> <span class="text-sm font-medium">Seller</span></label></div></div>
+<label class="flex items-center gap-2 mb-6 text-sm"><input type="checkbox" class="accent-primary" required> I agree to the <a href="#" class="text-primary hover:underline">Terms</a> & <a href="#" class="text-primary hover:underline" data-i18n="footer_privacy">Privacy Policy</a></label>
+<button type="submit" class="btn-primary w-full py-3" data-i18n="register_title">Create Account</button>
+<div class="mt-6 text-center text-sm text-[var(--text-secondary)]">Already have an account? <a href="login.html" class="text-primary font-semibold hover:underline">Sign In</a></div>
+</form>
+</div>
+</main>
+<footer class="py-6 text-center text-sm text-[var(--text-secondary)] border-t border-[var(--border)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

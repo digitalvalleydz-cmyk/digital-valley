@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Custom Logo & Brand Identity â€” DigitalValley</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="font-sans">
+<nav class="navbar px-4 lg:px-8 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="text-primary" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="hover:text-primary transition" data-i18n="nav_dashboard">Dashboard</a></div>
+<div class="flex items-center gap-3"><a href="cart.html" class="relative p-2 hover:text-primary transition"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a><div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button><a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a><button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button></div>
+</div>
+</nav>
+<div id="mobile-menu" class="mobile-menu"><button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button><a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="login.html" data-i18n="nav_login">Login</a></div>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<!-- Breadcrumb -->
+<nav class="text-sm text-[var(--text-secondary)] mb-6"><a href="index.html" class="hover:text-primary" data-i18n="nav_home">Home</a> <span class="mx-2">/</span> <a href="marketplace.html" class="hover:text-primary" data-i18n="nav_marketplace">Marketplace</a> <span class="mx-2">/</span> <span class="text-[var(--text)]">Custom Logo & Brand Identity</span></nav>
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Image Gallery -->
+<div class="lg:col-span-2">
+<img src="https://picsum.photos/seed/detail1/800/450" alt="Product" class="w-full rounded-xl mb-4 object-cover">
+<div class="grid grid-cols-4 gap-3">
+<img src="https://picsum.photos/seed/detail2/200/150" class="rounded-lg cursor-pointer hover:opacity-80 transition object-cover h-20 w-full" alt="">
+<img src="https://picsum.photos/seed/detail3/200/150" class="rounded-lg cursor-pointer hover:opacity-80 transition object-cover h-20 w-full" alt="">
+<img src="https://picsum.photos/seed/detail4/200/150" class="rounded-lg cursor-pointer hover:opacity-80 transition object-cover h-20 w-full" alt="">
+<img src="https://picsum.photos/seed/detail5/200/150" class="rounded-lg cursor-pointer hover:opacity-80 transition object-cover h-20 w-full" alt="">
+</div>
+</div>
+<!-- Sidebar -->
+<div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sticky top-20">
+<span class="badge badge-blue mb-3" data-i18n="cat_design">Design</span>
+<h1 class="text-2xl font-800 mb-2">Custom Logo & Brand Identity</h1>
+<div class="flex items-center gap-2 mb-4"><div class="stars">â˜…â˜…â˜…â˜…â˜…</div><span class="text-[var(--text-secondary)] text-sm">(215 reviews)</span></div>
+<div class="text-3xl font-800 text-primary mb-4">$89</div>
+<a href="profile.html" class="flex items-center gap-3 mb-6 p-3 bg-[var(--bg)] rounded-lg hover:bg-[var(--border)] transition">
+<img src="https://i.pravatar.cc/48?img=11" class="w-12 h-12 rounded-full" alt="">
+<div><div class="font-bold">Anna B.</div><div class="text-sm text-[var(--text-secondary)]">Top Rated Seller Â· 4.9â˜…</div></div>
+</a>
+<button onclick="addToCart({id:'svc1',title:'Custom Logo & Brand Identity',price:89})" class="btn-primary w-full py-3 mb-3"><i class="fas fa-cart-plus mr-2"></i data-i18n="add_to_cart">Add to Cart</button>
+<button class="btn-outline w-full py-3"><i class="fas fa-envelope mr-2"></i>Contact Seller</button>
+<div class="mt-6 space-y-3 text-sm">
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Delivery Time</span><span class="font-semibold">3-5 days</span></div>
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Revisions</span><span class="font-semibold">Unlimited</span></div>
+<div class="flex justify-between"><span class="text-[var(--text-secondary)]">Orders in Queue</span><span class="font-semibold">12</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Description -->
+<section class="lg:col-span-2 mt-8">
+<h2 class="text-xl font-800 mb-4">Description</h2>
+<div class="text-[var(--text-secondary)] space-y-3">
+<p>Get a professional, unique logo and complete brand identity package that will make your business stand out. This service includes:</p>
+<ul class="list-disc pl-5 space-y-1"><li>3 initial logo concepts</li><li>Unlimited revisions until you're satisfied</li><li>Full brand guidelines document</li><li>All source files (AI, EPS, SVG, PNG)</li><li>Business card design</li><li>Social media kit</li></ul>
+</div>
+</section>
+<!-- Reviews -->
+<section class="lg:col-span-3 mt-12">
+<h2 class="text-xl font-800 mb-6">Reviews (215)</h2>
+<div class="space-y-4">
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5"><div class="flex items-center gap-3 mb-3"><img src="https://i.pravatar.cc/40?img=33" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Michael R.</div><div class="text-sm text-[var(--text-secondary)]">2 days ago</div></div><div class="ml-auto stars text-sm">â˜…â˜…â˜…â˜…â˜…</div></div><p class="text-[var(--text-secondary)]">Absolutely incredible work! Anna delivered beyond my expectations. The logo perfectly captures my brand essence.</p></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5"><div class="flex items-center gap-3 mb-3"><img src="https://i.pravatar.cc/40?img=35" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Sarah L.</div><div class="text-sm text-[var(--text-secondary)]">1 week ago</div></div><div class="ml-auto stars text-sm">â˜…â˜…â˜…â˜…â˜…</div></div><p class="text-[var(--text-secondary)]">Fast turnaround, great communication, and amazing quality. Highly recommended!</p></div>
+<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5"><div class="flex items-center gap-3 mb-3"><img src="https://i.pravatar.cc/40?img=37" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">James K.</div><div class="text-sm text-[var(--text-secondary)]">2 weeks ago</div></div><div class="ml-auto stars text-sm">â˜…â˜…â˜…â˜…â˜†</div></div><p class="text-[var(--text-secondary)]">Very professional service. The only reason for 4 stars is the initial concepts needed more variety, but final result was perfect.</p></div>
+</div>
+</section>
+</main>
+<footer class="py-8 px-4 border-t border-[var(--border)] mt-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<a href="index.html" class="flex items-center gap-2 font-bold"><i class="fas fa-store text-primary"></i>Digital<span class="text-primary">Hub</span></a>
+<div class="text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+</div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
