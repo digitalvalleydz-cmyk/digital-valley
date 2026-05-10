@@ -138,10 +138,90 @@ document.querySelectorAll('input[type="range"]').forEach(r => {
   const updateSlider = () => {
     const pct = ((r.value - r.min) / (r.max - r.min)) * 100;
     r.style.background = `linear-gradient(90deg, var(--primary) ${pct}%, var(--border) ${pct}%)`;
-    if (display) display.textContent = '$' + r.value;
+    if (display) {
+      const curr = localStorage.getItem('currency') || 'USD';
+      const lang = localStorage.getItem('lang') || 'en';
+      const rate = curr === 'DZD' ? 132 : 1;
+      const symbol = curr === 'DZD' ? (lang === 'ar' ? 'د.ج' : 'DZD') : '$';
+      const val = parseInt(r.value) * rate;
+      if (curr === 'DZD') {
+        display.textContent = lang === 'ar' ? val.toLocaleString('ar-DZ') + ' ' + symbol : val.toLocaleString() + ' ' + symbol;
+      } else {
+        display.textContent = symbol + val;
+      }
+    }
   };
   r.addEventListener('input', updateSlider);
   updateSlider();
+});
+
+// ===== Currency Switcher =====
+window.currencies = {
+  USD: { symbol: '$', rate: 1 },
+  DZD: { symbol: 'دج', rate: 132 }
+};
+
+window.setCurrency = function(curr) {
+  if (!window.currencies[curr]) curr = 'USD';
+  localStorage.setItem('currency', curr);
+  const lang = localStorage.getItem('lang') || 'en';
+  const c = {...window.currencies[curr]};
+  
+  // Dynamic DZD symbol based on language
+  if (curr === 'DZD') {
+    c.symbol = (lang === 'ar') ? 'د.ج' : 'DZD';
+  }
+  
+  document.querySelectorAll('[data-price]').forEach(el => {
+    const usdPrice = parseFloat(el.dataset.price);
+    if (isNaN(usdPrice)) return;
+    const converted = usdPrice * c.rate;
+    
+    if (curr === 'DZD') {
+      if (lang === 'ar') {
+        el.textContent = Math.round(converted).toLocaleString('ar-DZ') + ' ' + c.symbol;
+      } else {
+        el.textContent = Math.round(converted).toLocaleString() + ' ' + c.symbol;
+      }
+    } else {
+      el.textContent = c.symbol + usdPrice.toFixed(2).replace(/\.00$/, '');
+    }
+  });
+
+  // Update switcher UI
+  document.querySelectorAll('.curr-btn').forEach(btn => {
+    if (btn.dataset.curr === curr) {
+      btn.classList.add('text-primary', 'font-bold');
+      btn.classList.remove('text-[var(--text-secondary)]');
+    } else {
+      btn.classList.remove('text-primary', 'font-bold');
+      btn.classList.add('text-[var(--text-secondary)]');
+    }
+  });
+
+  // Update slider if present
+  document.querySelectorAll('input[type="range"]').forEach(r => {
+    r.dispatchEvent(new Event('input'));
+  });
+
+  // Update sell.html price symbol
+  const symbolEl = document.getElementById('curr-symbol');
+  if (symbolEl) {
+    symbolEl.textContent = c.symbol;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const currentCurr = localStorage.getItem('currency') || 'USD';
+  window.setCurrency(currentCurr);
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.curr-btn');
+    if (btn) {
+      e.preventDefault();
+      window.setCurrency(btn.dataset.curr);
+    }
+  });
 });
 
 // ===== Intersection Observer for Animations =====
@@ -295,3 +375,54 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 const statsSection = document.getElementById('stats-bar');
 if (statsSection) counterObserver.observe(statsSection);
+
+// ===== Cookie Consent Banner =====
+function initCookieBanner() {
+  if (localStorage.getItem('cookieConsent')) return;
+
+  const bannerHtml = `
+    <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 shadow-xl z-[9999] animate-fade-in-up">
+        <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-primary text-xl shrink-0">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold mb-1" data-i18n="footer_cookie">Cookie Policy</h3>
+                <p class="text-sm text-[var(--text-secondary)] mb-4 leading-relaxed" data-i18n="cookie_banner_text">
+                    We use cookies to improve your experience. By continuing to browse, you agree to our cookie policy.
+                </p>
+                <div class="flex items-center gap-3">
+                    <button id="accept-cookies" class="btn-primary py-2 px-6 text-sm" data-i18n="btn_accept">Accept</button>
+                    <button id="decline-cookies" class="btn-ghost py-2 px-6 text-sm" data-i18n="btn_decline">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', bannerHtml);
+
+  // Translate banner
+  if (typeof setLanguage === 'function') {
+    setLanguage(localStorage.getItem('lang') || 'en');
+  }
+
+  document.getElementById('accept-cookies').addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    const banner = document.getElementById('cookie-banner');
+    banner.style.opacity = '0';
+    banner.style.transform = 'translateY(20px)';
+    banner.style.transition = 'all 0.4s ease';
+    setTimeout(() => banner.remove(), 400);
+  });
+
+  document.getElementById('decline-cookies').addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    const banner = document.getElementById('cookie-banner');
+    banner.style.opacity = '0';
+    banner.style.transform = 'translateY(20px)';
+    banner.style.transition = 'all 0.4s ease';
+    setTimeout(() => banner.remove(), 400);
+  });
+}
+document.addEventListener('DOMContentLoaded', initCookieBanner);

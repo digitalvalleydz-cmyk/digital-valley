@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title data-i18n="careers_title">Careers — DigitalValley</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563EB', accent: '#7C3AED' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } }</script>
+</head>
+<body class="font-sans">
+    <nav class="navbar px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a><a href="marketplace.html" class="nav-link" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="nav-link" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="nav-link" data-i18n="nav_dashboard">Dashboard</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+                <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+                </div>
+                <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
+                </div>
+                <button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
+                <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col gap-1 mb-6">
+            <a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a>
+        </div>
+        
+        <!-- Mobile Switchers -->
+        <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Language</span>
+                <div class="flex gap-3">
+                    <a href="#" class="lang-btn text-sm" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="ar">AR</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Currency</span>
+                <div class="flex gap-3">
+                    <a href="#" class="curr-btn text-sm" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm" data-curr="DZD">DZD</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Theme</span>
+                <button class="dark-toggle icon-btn !bg-[var(--border-light)]"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+            <div class="max-w-7xl mx-auto text-center animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-900 mb-6 text-gradient" data-i18n="careers_hero_title">Join the DigitalValley Team</h1>
+                <p class="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto" data-i18n="careers_hero_subtitle">Be part of the digital revolution in Algeria and beyond.</p>
+            </div>
+        </section>
+
+        <!-- Intro Message -->
+        <section class="py-20 px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center text-primary text-4xl mx-auto mb-8 animate-bounce">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2 class="text-3xl font-800 mb-6" data-i18n="careers_intro_title">We're Just Getting Started</h2>
+                <p class="text-[var(--text-secondary)] text-lg leading-relaxed" data-i18n="careers_intro_content">DigitalValley is a young and rapidly growing platform. While we don't have open positions at this very moment, we are building something big and will be looking for talented individuals soon.</p>
+            </div>
+        </section>
+
+        <!-- Why DigitalValley -->
+        <section class="py-20 px-4 bg-[var(--bg-card)] border-y border-[var(--border)]">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-800 mb-12 text-center" data-i18n="careers_why_title">Why DigitalValley?</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[var(--bg)] border border-[var(--border)] p-8 rounded-2xl text-center card-hover animate-fade-in-up delay-1">
+                        <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/40 rounded-full flex items-center justify-center text-yellow-600 text-2xl mx-auto mb-6">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="text-xl font-800 mb-3" data-i18n="careers_val_creative_title">Creative Environment</h3>
+                        <p class="text-sm text-[var(--text-secondary)]" data-i18n="careers_val_creative_desc">A space where your ideas are valued and innovation is encouraged.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-[var(--bg)] border border-[var(--border)] p-8 rounded-2xl text-center card-hover animate-fade-in-up delay-2">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center text-green-600 text-2xl mx-auto mb-6">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-800 mb-3" data-i18n="careers_val_team_title">Young & Ambitious Team</h3>
+                        <p class="text-sm text-[var(--text-secondary)]" data-i18n="careers_val_team_desc">Work with passionate people who want to make a difference.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-[var(--bg)] border border-[var(--border)] p-8 rounded-2xl text-center card-hover animate-fade-in-up delay-3">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center text-blue-600 text-2xl mx-auto mb-6">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3 class="text-xl font-800 mb-3" data-i18n="careers_val_project_title">Pioneering Algerian Project</h3>
+                        <p class="text-sm text-[var(--text-secondary)]" data-i18n="careers_val_project_desc">Contribute to a major project that empowers local creators.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-[var(--bg)] border border-[var(--border)] p-8 rounded-2xl text-center card-hover animate-fade-in-up delay-4">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/40 rounded-full flex items-center justify-center text-purple-600 text-2xl mx-auto mb-6">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-800 mb-3" data-i18n="careers_val_future_title">Promising Digital Future</h3>
+                        <p class="text-sm text-[var(--text-secondary)]" data-i18n="careers_val_future_desc">Build your career in the fastest growing sector in the region.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Follow Us Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-800 mb-6" data-i18n="careers_follow_title">Be the First to Know</h2>
+                <p class="text-[var(--text-secondary)] text-lg mb-10" data-i18n="careers_follow_desc">Follow us on social media to catch our job announcements the moment they drop.</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="https://www.facebook.com/DigitalValleyDZ/" class="social-btn-large flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#1877F2] text-white hover:scale-105 transition-transform shadow-lg">
+                        <i class="fab fa-facebook text-2xl"></i>
+                        <span class="font-bold">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/digitalvalleydz/" class="social-btn-large flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white hover:scale-105 transition-transform shadow-lg">
+                        <i class="fab fa-instagram text-2xl"></i>
+                        <span class="font-bold">Instagram</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/digitalvalleydz" class="social-btn-large flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#0077b5] text-white hover:scale-105 transition-transform shadow-lg">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                        <span class="font-bold">LinkedIn</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@digitalvalleydz" class="social-btn-large flex items-center gap-3 px-8 py-4 rounded-2xl bg-black text-white hover:scale-105 transition-transform shadow-lg">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                        <span class="font-bold">TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-20 px-4 mb-20">
+            <div class="max-w-3xl mx-auto bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-3xl p-10 text-center animate-fade-in-up">
+                <h2 class="text-2xl font-800 mb-4" data-i18n="careers_contact_title">Have an Initiative or Suggestion?</h2>
+                <p class="text-blue-800 dark:text-blue-200 text-lg" data-i18n="careers_contact_content">We're always open to great ideas. Contact us at digitalvalleydz@gmail.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-4 border-t border-[var(--border)] mt-12 bg-[var(--bg-card)]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div><a href="index.html" class="flex items-center gap-2 font-bold text-xl mb-3"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+                <p class="text-[var(--text-secondary)] text-sm" data-i18n="footer_desc">The premier marketplace for digital products and freelance services.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_company">Company</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]">
+                    <a href="about.html" class="hover:text-primary transition" data-i18n="footer_about">About</a>
+                    <a href="contact.html" class="hover:text-primary transition" data-i18n="footer_contact">Contact</a>
+                    <a href="careers.html" class="hover:text-primary transition font-bold" data-i18n="footer_careers">Careers</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_legal">Legal</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]">
+                    <a href="privacy.html" class="hover:text-primary transition" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-primary transition" data-i18n="footer_terms">Terms of Service</a>
+                    <a href="cookies.html" class="hover:text-primary transition" data-i18n="footer_cookie">Cookie Policy</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_follow">Follow Us</h4>
+                <div class="flex gap-3 text-lg">
+                    <a href="https://www.facebook.com/DigitalValleyDZ/" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/digitalvalleydz/" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">© 2026 DigitalValley. All rights reserved.</div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+<script src="js/api.js"></script>`n</body>
+</html>
+

@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Marketplace â€” DigitalValley</title>
+<title data-i18n="nav_marketplace">Marketplace — DigitalValley</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/custom.css">
-<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
 </head>
 <body class="font-sans">
 <nav class="navbar px-4 lg:px-8 py-3">
 <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
+<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
 <div class="hidden md:flex items-center gap-6 text-sm font-medium">
 <a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="text-primary" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="hover:text-primary transition" data-i18n="nav_dashboard">Dashboard</a>
 </div>
@@ -23,12 +23,16 @@
 </div>
 <div class="flex items-center gap-3">
 <a href="cart.html" class="relative p-2 hover:text-primary transition"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
-<div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
 <a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
 <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
 <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
 </div>
-<button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button>
+<div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+<a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
+<a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
+</div>
+<button class="dark-toggle p-2 hover:text-primary transition hidden md:flex"><i class="fas fa-moon"></i></button>
 <a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
 <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
 </div>
@@ -36,40 +40,65 @@
 </nav>
 <div id="mobile-menu" class="mobile-menu">
 <button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
-<a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a><a href="register.html" data-i18n="nav_register">Register</a>
+<div class="flex flex-col gap-1 mb-6">
+<a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a><a href="register.html" data-i18n="nav_register">Register</a>
+</div>
+
+<!-- Mobile Switchers -->
+<div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-4">
+    <div class="flex items-center justify-between px-2">
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Language</span>
+        <div class="flex gap-3">
+            <a href="#" class="lang-btn text-sm" data-lang="en">EN</a>
+            <a href="#" class="lang-btn text-sm" data-lang="fr">FR</a>
+            <a href="#" class="lang-btn text-sm" data-lang="ar">AR</a>
+        </div>
+    </div>
+    <div class="flex items-center justify-between px-2">
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Currency</span>
+        <div class="flex gap-3">
+            <a href="#" class="curr-btn text-sm" data-curr="USD">USD</a>
+            <a href="#" class="curr-btn text-sm" data-curr="DZD">DZD</a>
+        </div>
+    </div>
+    <div class="flex items-center justify-between px-2">
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Theme</span>
+        <button class="dark-toggle icon-btn !bg-[var(--border-light)]"><i class="fas fa-moon"></i></button>
+    </div>
+</div>
 </div>
 <main class="max-w-7xl mx-auto px-4 py-8">
 <h1 class="text-3xl font-800 mb-2" data-i18n="nav_marketplace">Marketplace</h1>
-<p class="text-[var(--text-secondary)] mb-6">Discover thousands of digital products and services</p>
+<p class="text-[var(--text-secondary)] mb-6" data-i18n="mkt_marketplace_desc">Discover thousands of digital products and services</p>
 <!-- Tabs -->
 <div data-tabs class="flex gap-2 border-b border-[var(--border)] mb-6">
-<button class="tab-btn active" data-tab="tab-services">Services</button>
+<button class="tab-btn active" data-tab="tab-services" data-i18n="mkt_services_tab">Services</button>
 <button class="tab-btn" data-tab="tab-products" data-i18n="stats_products">Digital Products</button>
 </div>
 <!-- Filters -->
 <div class="grid md:grid-cols-4 gap-4 mb-8 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4">
-<div><label class="form-label text-sm">Category</label><select class="form-input text-sm"><option>All Categories</option><option data-i18n="cat_design">Design</option><option data-i18n="cat_development">Development</option><option data-i18n="cat_writing">Writing</option><option data-i18n="cat_marketing">Marketing</option><option data-i18n="cat_music">Music</option><option data-i18n="cat_video">Video</option></select></div>
-<div><label class="form-label text-sm">Price Range</label><input type="range" id="price-range" min="0" max="500" value="250"><div class="text-sm text-[var(--text-secondary)] mt-1">Up to <span id="price-range-val">$250</span></div></div>
-<div><label class="form-label text-sm">Sort By</label><select class="form-input text-sm"><option>Newest</option><option>Most Popular</option><option>Lowest Price</option><option>Highest Rated</option></select></div>
-<div class="flex items-end"><button class="btn-primary w-full text-sm">Apply Filters</button></div>
+<div><label class="form-label text-sm"><span data-i18n="mkt_category">Category</span></label><select class="form-input text-sm"><option data-i18n="mkt_all_categories">All Categories</option><option data-i18n="cat_design">Design</option><option data-i18n="cat_development">Development</option><option data-i18n="cat_writing">Writing</option><option data-i18n="cat_marketing">Marketing</option><option data-i18n="cat_music">Music</option><option data-i18n="cat_video">Video</option></select></div>
+<div><label class="form-label text-sm"><span data-i18n="mkt_price_range">Price Range</span></label><input type="range" id="price-range" min="0" max="500" value="250"><div class="text-sm text-[var(--text-secondary)] mt-1"><span data-i18n="mkt_up_to">Up to</span> <span id="price-range-val">$250</span></div></div>
+<div><label class="form-label text-sm"><span data-i18n="mkt_sort_by">Sort By</span></label><select class="form-input text-sm"><option data-i18n="mkt_sort_newest">Newest</option><option data-i18n="mkt_sort_popular">Most Popular</option><option data-i18n="mkt_sort_low_high">Lowest Price</option><option data-i18n="mkt_sort_high_low">Highest Rated</option></select></div>
+<div class="flex items-end"><button class="btn-primary w-full text-sm" data-i18n="mkt_apply">Apply Filters</button></div>
 </div>
 <!-- Services Tab -->
 <div id="tab-services" class="tab-content">
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1">Custom Logo & Brand Identity</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=11" class="w-6 h-6 rounded-full" alt="">Anna B.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(215)</span></div><div class="font-bold text-primary">$89</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_development">Development</span><h3 class="card-title font-bold mb-1">Full-Stack Web App Development</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=14" class="w-6 h-6 rounded-full" alt="">David K.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(142)</span></div><div class="font-bold text-primary">$299</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2" data-i18n="cat_writing">Writing</span><h3 class="card-title font-bold mb-1">Professional Copywriting Service</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=16" class="w-6 h-6 rounded-full" alt="">Rachel M.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(98)</span></div><div class="font-bold text-primary">$59</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m4/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2" data-i18n="cat_marketing">Marketing</span><h3 class="card-title font-bold mb-1">Social Media Strategy Plan</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=18" class="w-6 h-6 rounded-full" alt="">Tom H.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(76)</span></div><div class="font-bold text-primary">$149</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m5/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1">UI/UX Mobile App Design</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=20" class="w-6 h-6 rounded-full" alt="">Nina P.</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(183)</span></div><div class="font-bold text-primary">$199</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m6/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_video">Video</span><h3 class="card-title font-bold mb-1">Explainer Video Production</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=22" class="w-6 h-6 rounded-full" alt="">Studio X</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(54)</span></div><div class="font-bold text-primary">$349</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_1_title">Custom Logo & Brand Identity</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=11" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_1_author">Anna B.</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(215)</span></div><div class="font-bold text-primary" data-price="89">$89</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_development">Development</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_2_title">Full-Stack Web App Development</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=14" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_2_author">David K.</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(142)</span></div><div class="font-bold text-primary" data-price="299">$299</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2" data-i18n="cat_writing">Writing</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_3_title">Professional Copywriting Service</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=16" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_3_author">Rachel M.</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(98)</span></div><div class="font-bold text-primary" data-price="59">$59</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m4/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2" data-i18n="cat_marketing">Marketing</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_4_title">Social Media Strategy Plan</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=18" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_4_author">Tom H.</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(76)</span></div><div class="font-bold text-primary" data-price="149">$149</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m5/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_5_title">UI/UX Mobile App Design</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=20" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_5_author">Nina P.</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(183)</span></div><div class="font-bold text-primary" data-price="199">$199</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/m6/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_video">Video</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_6_title">Explainer Video Production</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=22" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_6_author">Studio X</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(54)</span></div><div class="font-bold text-primary" data-price="349">$349</div></div><a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a></div></article>
 </div>
 </div>
 <!-- Products Tab -->
 <div id="tab-products" class="tab-content" style="display:none">
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2">UI Kit</span><h3 class="card-title font-bold mb-1">Starter Dashboard UI Kit</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=25" class="w-6 h-6 rounded-full" alt="">PixelCraft</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(278)</span></div><div class="font-bold text-primary">$29</div></div><button onclick="addToCart({id:'dp1',title:'Starter Dashboard UI Kit',price:29})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2">eBook</span><h3 class="card-title font-bold mb-1">JavaScript Mastery Course</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=28" class="w-6 h-6 rounded-full" alt="">CodePro</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(195)</span></div><div class="font-bold text-primary">$49</div></div><button onclick="addToCart({id:'dp2',title:'JavaScript Mastery Course',price:49})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
-<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2">Audio</span><h3 class="card-title font-bold mb-1">Cinematic Sound FX Bundle</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=30" class="w-6 h-6 rounded-full" alt="">SoundLab</div><div class="flex items-center justify-between mb-3"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(112)</span></div><div class="font-bold text-primary">$35</div></div><button onclick="addToCart({id:'dp3',title:'Cinematic Sound FX Bundle',price:35})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp1/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2">UI Kit</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_7_title">Starter Dashboard UI Kit</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=25" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_7_author">PixelCraft</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(278)</span></div><div class="font-bold text-primary" data-price="29">$29</div></div><button onclick="addToCart({id:'dp1',title:'Starter Dashboard UI Kit',price:29})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp2/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2">eBook</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_8_title">JavaScript Mastery Course</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=28" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_8_author">CodePro</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(195)</span></div><div class="font-bold text-primary" data-price="49">$49</div></div><button onclick="addToCart({id:'dp2',title:'JavaScript Mastery Course',price:49})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
+<article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/dp3/400/240" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2">Audio</span><h3 class="card-title font-bold mb-1" data-i18n="mkt_prod_9_title">Cinematic Sound FX Bundle</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=30" class="w-6 h-6 rounded-full" alt=""><span data-i18n="mkt_prod_9_author">SoundLab</span></div><div class="flex items-center justify-between mb-3"><div class="stars text-sm"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i> <span class="text-[var(--text-secondary)]">(112)</span></div><div class="font-bold text-primary" data-price="35">$35</div></div><button onclick="addToCart({id:'dp3',title:'Cinematic Sound FX Bundle',price:35})" class="btn-primary w-full text-sm" data-i18n="add_to_cart">Add to Cart</button></div></article>
 </div>
 </div>
 <!-- Skeleton Loader (hidden by default, for demo) -->
@@ -79,15 +108,145 @@
 <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><div class="skeleton skeleton-img"></div><div class="p-4"><div class="skeleton skeleton-text w-20 mb-2"></div><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text w-32 mt-2"></div><div class="skeleton skeleton-text w-full mt-3" style="height:36px"></div></div></div>
 </div>
 </main>
-<footer class="py-8 px-4 border-t border-[var(--border)]">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-<a href="index.html" class="flex items-center gap-2 font-bold"><i class="fas fa-store text-primary"></i>Digital<span class="text-primary">Hub</span></a>
-<div class="text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
-<div class="flex gap-3"><a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a></div>
-</div>
+<footer class="py-12 px-4 border-t border-[var(--border)] mt-12 bg-[var(--bg-card)]">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+        <div><a href="index.html" class="flex items-center gap-2 font-bold text-xl mb-3"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+            <p class="text-[var(--text-secondary)] text-sm" data-i18n="footer_desc">The premier marketplace for
+                digital products and freelance services.</p>
+        </div>
+        <div>
+            <h4 class="font-bold mb-3" data-i18n="footer_company">Company</h4>
+            <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="about.html"
+                    class="hover:text-primary transition" data-i18n="footer_about">About</a><a href="contact.html"
+                    class="hover:text-primary transition" data-i18n="footer_contact">Contact</a><a href="careers.html"
+                    class="hover:text-primary transition" data-i18n="footer_careers">Careers</a></div>
+        </div>
+        <div>
+            <h4 class="font-bold mb-3" data-i18n="footer_legal">Legal</h4>
+            <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="privacy.html"
+                    class="hover:text-primary transition" data-i18n="footer_privacy">Privacy Policy</a><a href="terms.html"
+                    class="hover:text-primary transition" data-i18n="footer_terms">Terms of Service</a><a href="cookies.html"
+                    class="hover:text-primary transition" data-i18n="footer_cookie">Cookie Policy</a></div>
+        </div>
+        <div>
+            <h4 class="font-bold mb-3" data-i18n="footer_follow">Follow Us</h4>
+            <div class="flex gap-3 text-lg">
+                <a href="https://www.facebook.com/DigitalValleyDZ/" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/digitalvalleydz/" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--text-secondary)]"
+        data-i18n="footer_rights">© 2026 DigitalValley. All rights reserved.</div>
 </footer>
+<script src="js/api.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script>
+    let currentFilters = {
+        type: 'service',
+        category: '',
+        maxPrice: 500,
+        search: ''
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        // Initial Fetch
+        await fetchAndRenderProducts();
+
+        // Search Input
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', debounce(async (e) => {
+            currentFilters.search = e.target.value;
+            await fetchAndRenderProducts();
+        }, 500));
+
+        // Tab Switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                currentFilters.type = btn.dataset.tab === 'tab-services' ? 'service' : 'digital-product';
+                await fetchAndRenderProducts();
+            });
+        });
+
+        // Category Filter
+        const categorySelect = document.querySelector('select');
+        categorySelect.addEventListener('change', async (e) => {
+            currentFilters.category = e.target.value === 'All Categories' ? '' : e.target.value;
+            await fetchAndRenderProducts();
+        });
+
+        // Price Range
+        const priceRange = document.getElementById('price-range');
+        const priceVal = document.getElementById('price-range-val');
+        priceRange.addEventListener('input', (e) => {
+            priceVal.innerText = `$${e.target.value}`;
+        });
+        priceRange.addEventListener('change', async (e) => {
+            currentFilters.maxPrice = e.target.value;
+            await fetchAndRenderProducts();
+        });
+    });
+
+    async function fetchAndRenderProducts() {
+        const productsGrid = document.querySelector('.tab-content:not([style*="display:none"]) .grid') || document.querySelector('.grid.sm\\:grid-cols-2');
+        if (!productsGrid) return;
+
+        // Show Skeleton (optional, here we just clear)
+        productsGrid.innerHTML = '<div class="col-span-full py-12 text-center text-[var(--text-secondary)]">Loading products...</div>';
+
+        try {
+            const products = await getProducts(currentFilters);
+            
+            if (products.length === 0) {
+                productsGrid.innerHTML = '<div class="col-span-full py-12 text-center text-[var(--text-secondary)]">No products found matching your criteria.</div>';
+                return;
+            }
+
+            productsGrid.innerHTML = products.map(product => `
+                <article class="product-card card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+                    <img src="${product.thumbnail.startsWith('http') ? product.thumbnail : 'http://localhost:5000/' + product.thumbnail.replace(/\\\\/g, '/')}" alt="${product.title}" class="w-full h-44 object-cover">
+                    <div class="p-4">
+                        <span class="badge badge-blue mb-2">${product.category}</span>
+                        <h3 class="card-title font-bold mb-1">${product.title}</h3>
+                        <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2">
+                            <img src="${product.seller.avatar}" class="w-6 h-6 rounded-full" alt="">
+                            <span>${product.seller.username}</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="stars text-sm">
+                                ${generateStars(product.rating)}
+                                <span class="text-[var(--text-secondary)]">(${product.totalReviews})</span>
+                            </div>
+                            <div class="font-bold text-primary" data-price="${product.price}">$${product.price}</div>
+                        </div>
+                        <a href="product-detail.html?id=${product._id}" class="btn-outline w-full text-sm text-center block" data-i18n="mkt_view_details">View Details</a>
+                    </div>
+                </article>
+            `).join('');
+
+        } catch (err) {
+            productsGrid.innerHTML = '<div class="col-span-full py-12 text-center text-red-500">Error loading products. Please try again.</div>';
+        }
+    }
+
+    function generateStars(rating) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<i class="${i <= rating ? 'fas' : 'far'} fa-star text-yellow-400"></i>`;
+        }
+        return stars;
+    }
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+</script>
 </body>
 </html>
-

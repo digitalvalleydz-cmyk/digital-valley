@@ -1,149 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Home — DigitalValley</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/custom.css">
-<script>tailwind.config={theme:{extend:{colors:{primary:'#2563EB',accent:'#7C3AED'},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title data-i18n="title_home">Home — DigitalValley</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563EB', accent: '#7C3AED' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } }</script>
 </head>
+
 <body class="font-sans">
-<!-- Navbar -->
-<nav class="navbar px-4 lg:px-8 py-3">
-<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><i class="fas fa-store text-primary text-2xl"></i><span>Digital<span class="text-primary">Hub</span></span></a>
-<div class="hidden md:flex items-center gap-6 text-sm font-medium">
-<a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a><a href="marketplace.html" class="nav-link" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="nav-link" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="nav-link" data-i18n="nav_dashboard">Dashboard</a>
-</div>
-<div class="hidden md:flex search-box w-72">
-<i class="fas fa-search text-[var(--text-muted)] text-sm mr-2"></i>
-<input type="text" placeholder="Search products & services..." data-i18n="search_placeholder" class="bg-transparent outline-none text-sm w-full text-[var(--text)]">
-</div>
-<div class="flex items-center gap-3">
-<a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
-<div class="flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
-<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
-<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
-<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
-</div>
-<button class="dark-toggle icon-btn"><i class="fas fa-moon"></i></button>
-<a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
-<a href="register.html" class="btn-primary text-sm hidden md:inline-block" data-i18n="nav_register">Register</a>
-<button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
-</div>
-</div>
-</nav>
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu">
-<button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
-<a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a><a href="register.html" data-i18n="nav_register">Register</a>
-</div>
-<main>
-<!-- Hero -->
-<section class="hero-gradient text-white py-24 md:py-36 px-4">
-<div class="max-w-4xl mx-auto text-center relative z-10">
-<div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6 text-sm font-medium animate-fade-in-up"><i class="fas fa-sparkles text-yellow-300"></i> Trusted by 12,000+ creators worldwide</div>
-<h1 class="text-display text-white mb-6 animate-fade-in-up delay-1" data-i18n="hero_title">Buy & Sell Digital<br>Products & Services</h1>
-<p class="text-lg md:text-xl text-blue-100/90 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-2" data-i18n="hero_subtitle">Join thousands of creators and entrepreneurs on the premier marketplace for digital goods and freelance services.</p>
-<div class="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-3">
-<a href="marketplace.html" class="bg-white text-primary font-bold px-8 py-3.5 rounded-xl hover:bg-blue-50 transition hover:shadow-lg hover:-translate-y-0.5" data-i18n="hero_browse">Browse Marketplace <i class="fas fa-arrow-right ml-1"></i></a>
-<a href="sell.html" class="border-2 border-white/60 text-white font-bold px-8 py-3.5 rounded-xl hover:bg-white/10 transition backdrop-blur-sm" data-i18n="hero_start">Start Selling</a>
-</div>
-</div>
-</section>
-<!-- Stats -->
-<section id="stats-bar" class="bg-[var(--bg-card)] border-b border-[var(--border)] py-10 px-4">
-<div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center">
-<div class="stat-card"><div class="text-2xl md:text-3xl font-800 text-primary counter" data-target="12000" data-suffix="+">0+</div><div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_sellers">Active Sellers</div></div>
-<div class="stat-card"><div class="text-2xl md:text-3xl font-800 text-accent counter" data-target="50000" data-suffix="+">0+</div><div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_products">Digital Products</div></div>
-<div class="stat-card"><div class="text-2xl md:text-3xl font-800 text-green-500 counter" data-target="200000" data-suffix="+">0+</div><div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_transactions">Transactions</div></div>
-</div>
-</section>
-<!-- Categories -->
-<section class="py-20 px-4 observe">
-<div class="max-w-7xl mx-auto">
-<h2 class="text-heading text-center mb-4" data-i18n="categories_title">Browse Categories</h2>
-<p class="text-[var(--text-secondary)] text-center mb-12 max-w-lg mx-auto" data-i18n="categories_subtitle">Find exactly what you need across our curated categories</p>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center text-primary text-2xl"><i class="fas fa-palette"></i></div><div class="font-semibold" data-i18n="cat_design">Design</div></a>
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-purple-100 dark:bg-purple-900/40 rounded-xl flex items-center justify-center text-accent text-2xl"><i class="fas fa-code"></i></div><div class="font-semibold" data-i18n="cat_development">Development</div></a>
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-green-100 dark:bg-green-900/40 rounded-xl flex items-center justify-center text-green-600 text-2xl"><i class="fas fa-pen-nib"></i></div><div class="font-semibold" data-i18n="cat_writing">Writing</div></a>
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-orange-100 dark:bg-orange-900/40 rounded-xl flex items-center justify-center text-orange-500 text-2xl"><i class="fas fa-bullhorn"></i></div><div class="font-semibold" data-i18n="cat_marketing">Marketing</div></a>
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-pink-100 dark:bg-pink-900/40 rounded-xl flex items-center justify-center text-pink-500 text-2xl"><i class="fas fa-music"></i></div><div class="font-semibold" data-i18n="cat_music">Music</div></a>
-<a href="marketplace.html" class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center"><div class="w-14 h-14 mx-auto mb-3 bg-red-100 dark:bg-red-900/40 rounded-xl flex items-center justify-center text-red-500 text-2xl"><i class="fas fa-video"></i></div><div class="font-semibold" data-i18n="cat_video">Video</div></a>
-</div>
-</div>
-</section>
-<!-- Featured Services -->
-<section class="py-16 px-4 bg-[var(--bg-card)] observe">
-<div class="max-w-7xl mx-auto">
-<div class="section-header"><h2 class="text-heading" data-i18n="featured_services">Featured Services</h2><a href="marketplace.html" class="section-link" data-i18n="view_all">View All <i class="fas fa-arrow-right text-sm"></i></a></div>
-<div class="scroll-row">
-<div class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72"><img src="https://picsum.photos/seed/svc1/400/240" alt="Service" class="w-full h-40 object-cover"><div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span><h3 class="font-bold mb-1">Professional Logo Design</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=1" class="w-6 h-6 rounded-full" alt="">Alex K.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(128)</span></div><div class="font-bold text-primary">$49</div></div></div></div>
-<div class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72"><img src="https://picsum.photos/seed/svc2/400/240" alt="Service" class="w-full h-40 object-cover"><div class="p-4"><span class="badge badge-purple mb-2" data-i18n="cat_development">Development</span><h3 class="font-bold mb-1">WordPress Website Setup</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=2" class="w-6 h-6 rounded-full" alt="">Maria S.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(89)</span></div><div class="font-bold text-primary">$129</div></div></div></div>
-<div class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72"><img src="https://picsum.photos/seed/svc3/400/240" alt="Service" class="w-full h-40 object-cover"><div class="p-4"><span class="badge badge-green mb-2" data-i18n="cat_writing">Writing</span><h3 class="font-bold mb-1">SEO Blog Articles (5 Pack)</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=3" class="w-6 h-6 rounded-full" alt="">James W.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(204)</span></div><div class="font-bold text-primary">$79</div></div></div></div>
-<div class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72"><img src="https://picsum.photos/seed/svc4/400/240" alt="Service" class="w-full h-40 object-cover"><div class="p-4"><span class="badge badge-orange mb-2" data-i18n="cat_marketing">Marketing</span><h3 class="font-bold mb-1">Social Media Management</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=4" class="w-6 h-6 rounded-full" alt="">Sara L.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(67)</span></div><div class="font-bold text-primary">$199</div></div></div></div>
-</div>
-</div>
-</section>
-<!-- Featured Products -->
-<section class="py-16 px-4 observe">
-<div class="max-w-7xl mx-auto">
-<div class="section-header"><h2 class="text-heading" data-i18n="featured_products">Featured Products</h2><a href="marketplace.html" class="section-link" data-i18n="view_all">View All <i class="fas fa-arrow-right text-sm"></i></a></div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/prod1/400/240" alt="Product" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-purple mb-2">UI Kit</span><h3 class="font-bold mb-1">Premium Dashboard UI Kit</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=5" class="w-6 h-6 rounded-full" alt="">Chris D.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(312)</span></div><div class="font-bold text-primary">$39</div></div><button onclick="addToCart({id:'p1',title:'Premium Dashboard UI Kit',price:39})" class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button></div></div>
-<div class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/prod2/400/240" alt="Product" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-blue mb-2">Template</span><h3 class="font-bold mb-1">React Admin Template</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=6" class="w-6 h-6 rounded-full" alt="">Dev Studio</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(156)</span></div><div class="font-bold text-primary">$59</div></div><button onclick="addToCart({id:'p2',title:'React Admin Template',price:59})" class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button></div></div>
-<div class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/prod3/400/240" alt="Product" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-green mb-2">eBook</span><h3 class="font-bold mb-1">Marketing Mastery Guide</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=7" class="w-6 h-6 rounded-full" alt="">Lisa M.</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜… <span class="text-[var(--text-secondary)]">(98)</span></div><div class="font-bold text-primary">$24</div></div><button onclick="addToCart({id:'p3',title:'Marketing Mastery Guide',price:24})" class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button></div></div>
-<div class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden"><img src="https://picsum.photos/seed/prod4/400/240" alt="Product" class="w-full h-44 object-cover"><div class="p-4"><span class="badge badge-orange mb-2">Audio</span><h3 class="font-bold mb-1">Lo-Fi Music Pack (50 Tracks)</h3><div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img src="https://i.pravatar.cc/32?img=8" class="w-6 h-6 rounded-full" alt="">BeatMaker</div><div class="flex items-center justify-between"><div class="stars text-sm">â˜…â˜…â˜…â˜…â˜† <span class="text-[var(--text-secondary)]">(73)</span></div><div class="font-bold text-primary">$19</div></div><button onclick="addToCart({id:'p4',title:'Lo-Fi Music Pack',price:19})" class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button></div></div>
-</div>
-</div>
-</section>
-<!-- How it works -->
-<section class="py-16 px-4 bg-[var(--bg-card)] observe">
-<div class="max-w-5xl mx-auto text-center">
-<h2 class="text-3xl font-800 mb-12" data-i18n="how_it_works">How It Works</h2>
-<div class="grid md:grid-cols-3 gap-8">
-<div><div class="w-16 h-16 mx-auto mb-4 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex items-center justify-center text-primary text-3xl"><i class="fas fa-user-plus"></i></div><h3 class="font-bold text-lg mb-2" data-i18n="how_1_title">1. Register</h3><p class="text-[var(--text-secondary)]" data-i18n="how_1_desc">Create your free account in seconds and set up your profile.</p></div>
-<div><div class="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center text-accent text-3xl"><i class="fas fa-list"></i></div><h3 class="font-bold text-lg mb-2" data-i18n="how_2_title">2. List or Browse</h3><p class="text-[var(--text-secondary)]" data-i18n="how_2_desc">List your digital products or browse thousands of offerings.</p></div>
-<div><div class="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center text-green-600 text-3xl"><i class="fas fa-handshake"></i></div><h3 class="font-bold text-lg mb-2" data-i18n="how_3_title">3. Buy or Sell</h3><p class="text-[var(--text-secondary)]" data-i18n="how_3_desc">Secure transactions with instant digital delivery.</p></div>
-</div>
-</div>
-</section>
-<!-- Testimonials -->
-<section class="py-16 px-4 observe">
-<div class="max-w-7xl mx-auto">
-<h2 class="text-3xl font-800 text-center mb-12" data-i18n="testimonials_title">What Our Users Say</h2>
-<div class="grid md:grid-cols-3 gap-6">
-<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover"><div class="stars mb-3">â˜…â˜…â˜…â˜…â˜…</div><p class="text-[var(--text-secondary)] mb-4">"DigitalValley transformed my freelance career. I've earned over $50K selling design assets here!"</p><div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=10" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Emma R.</div><div class="text-sm text-[var(--text-secondary)]">Graphic Designer</div></div></div></div>
-<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover"><div class="stars mb-3">â˜…â˜…â˜…â˜…â˜…</div><p class="text-[var(--text-secondary)] mb-4">"Best platform for buying quality code templates. The review system helps find top sellers."</p><div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=12" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Marcus T.</div><div class="text-sm text-[var(--text-secondary)]">Startup Founder</div></div></div></div>
-<div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover"><div class="stars mb-3">â˜…â˜…â˜…â˜…â˜†</div><p class="text-[var(--text-secondary)] mb-4">"I love how easy it is to set up a shop and start selling. Great support team too!"</p><div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=15" class="w-10 h-10 rounded-full" alt=""><div><div class="font-bold">Priya K.</div><div class="text-sm text-[var(--text-secondary)]">Content Creator</div></div></div></div>
-</div>
-</div>
-</section>
-<!-- CTA Banner -->
-<section class="py-16 px-4 hero-gradient text-white text-center">
-<div class="max-w-3xl mx-auto relative z-10">
-<h2 class="text-3xl md:text-4xl font-800 mb-4" data-i18n="cta_title">Ready to Start?</h2>
-<p class="text-blue-100 text-lg mb-8" data-i18n="cta_desc">Join our community of creators and start earning today.</p>
-<a href="register.html" class="bg-white text-primary font-bold px-10 py-4 rounded-xl text-lg hover:bg-blue-50 transition inline-block" data-i18n="cta_btn">Create Free Account</a>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="py-12 px-4">
-<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-<div><a href="index.html" class="flex items-center gap-2 font-bold text-xl mb-3"><i class="fas fa-store text-primary"></i>Digital<span class="text-primary">Hub</span></a><p class="text-[var(--text-secondary)] text-sm" data-i18n="footer_desc">The premier marketplace for digital products and freelance services.</p></div>
-<div><h4 class="font-bold mb-3" data-i18n="footer_company">Company</h4><div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="#" class="hover:text-primary transition" data-i18n="footer_about">About</a><a href="#" class="hover:text-primary transition" data-i18n="footer_contact">Contact</a><a href="#" class="hover:text-primary transition" data-i18n="footer_careers">Careers</a></div></div>
-<div><h4 class="font-bold mb-3" data-i18n="footer_legal">Legal</h4><div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="#" class="hover:text-primary transition" data-i18n="footer_privacy">Privacy Policy</a><a href="#" class="hover:text-primary transition" data-i18n="footer_terms">Terms of Service</a><a href="#" class="hover:text-primary transition" data-i18n="footer_cookie">Cookie Policy</a></div></div>
-<div><h4 class="font-bold mb-3" data-i18n="footer_follow">Follow Us</h4><div class="flex gap-3 text-lg"><a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a><a href="#" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a></div></div>
-</div>
-<div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
-</footer>
-<script src="js/i18n.js"></script>
-<script src="js/main.js"></script>
-</body>
+    <!-- Navbar -->
+    <nav class="navbar px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a><a href="marketplace.html"
+                    class="nav-link" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="nav-link"
+                    data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="nav-link"
+                    data-i18n="nav_dashboard">Dashboard</a>
+            </div>
+            <div class="hidden md:flex search-box w-72">
+                <i class="fas fa-search text-[var(--text-muted)] text-sm mr-2"></i>
+                <input type="text" placeholder="Search products & services..." data-i18n="search_placeholder"
+                    class="bg-transparent outline-none text-sm w-full text-[var(--text)]">
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span
+                        class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+                <div
+                    class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+                </div>
+                <div
+                    class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
+                </div>
+                <button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
+                <a href="register.html" class="btn-primary text-sm hidden md:inline-block"
+                    data-i18n="nav_register">Register</a>
+                <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col gap-1 mb-6">
+            <a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html"
+                data-i18n="nav_marketplace">Marketplace</a><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a
+                href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html"
+                data-i18n="nav_login">Login</a><a href="register.html" data-i18n="nav_register">Register</a>
+        </div>
+        
+        <!-- Mobile Switchers -->
+        <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Language</span>
+                <div class="flex gap-3">
+                    <a href="#" class="lang-btn text-sm" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="ar">AR</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Currency</span>
+                <div class="flex gap-3">
+                    <a href="#" class="curr-btn text-sm" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm" data-curr="DZD">DZD</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Theme</span>
+                <button class="dark-toggle icon-btn !bg-[var(--border-light)]"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <!-- Hero -->
+        <section class="hero-gradient text-white py-24 md:py-36 px-4">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6 text-sm font-medium animate-fade-in-up">
+                    <i class="fas fa-sparkles text-yellow-300"></i> Trusted by 12,000+ creators worldwide
+                </div>
+                <h1 class="text-display text-white mb-6 animate-fade-in-up delay-1" data-i18n="hero_title">Buy & Sell
+                    Digital<br>Products & Services</h1>
+                <p class="text-lg md:text-xl text-blue-100/90 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-2"
+                    data-i18n="hero_subtitle">Join thousands of creators and entrepreneurs on the premier marketplace
+                    for digital goods and freelance services.</p>
+                <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-3">
+                    <a href="marketplace.html"
+                        class="bg-white text-primary font-bold px-8 py-3.5 rounded-xl hover:bg-blue-50 transition hover:shadow-lg hover:-translate-y-0.5"
+                        data-i18n="hero_browse">Browse Marketplace <i class="fas fa-arrow-right ml-1"></i></a>
+                    <a href="sell.html"
+                        class="border-2 border-white/60 text-white font-bold px-8 py-3.5 rounded-xl hover:bg-white/10 transition backdrop-blur-sm"
+                        data-i18n="hero_start">Start Selling</a>
+                </div>
+            </div>
+        </section>
+        <!-- Stats -->
+        <section id="stats-bar" class="bg-[var(--bg-card)] border-b border-[var(--border)] py-10 px-4">
+            <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center">
+                <div class="stat-card">
+                    <div class="text-2xl md:text-3xl font-800 text-primary counter" data-target="12000" data-suffix="+">
+                        0+</div>
+                    <div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_sellers">Active Sellers
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-2xl md:text-3xl font-800 text-accent counter" data-target="50000" data-suffix="+">
+                        0+</div>
+                    <div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_products">Digital Products
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-2xl md:text-3xl font-800 text-green-500 counter" data-target="200000"
+                        data-suffix="+">0+</div>
+                    <div class="text-sm text-[var(--text-secondary)] mt-1" data-i18n="stats_transactions">Transactions
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Categories -->
+        <section class="py-20 px-4 observe">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-heading text-center mb-4" data-i18n="categories_title">Browse Categories</h2>
+                <p class="text-[var(--text-secondary)] text-center mb-12 max-w-lg mx-auto"
+                    data-i18n="categories_subtitle">Find exactly what you need across our curated categories</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center text-primary text-2xl">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_design">Design</div>
+                    </a>
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-purple-100 dark:bg-purple-900/40 rounded-xl flex items-center justify-center text-accent text-2xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_development">Development</div>
+                    </a>
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-green-100 dark:bg-green-900/40 rounded-xl flex items-center justify-center text-green-600 text-2xl">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_writing">Writing</div>
+                    </a>
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-orange-100 dark:bg-orange-900/40 rounded-xl flex items-center justify-center text-orange-500 text-2xl">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_marketing">Marketing</div>
+                    </a>
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-pink-100 dark:bg-pink-900/40 rounded-xl flex items-center justify-center text-pink-500 text-2xl">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_music">Music</div>
+                    </a>
+                    <a href="marketplace.html"
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 text-center">
+                        <div
+                            class="w-14 h-14 mx-auto mb-3 bg-red-100 dark:bg-red-900/40 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="font-semibold" data-i18n="cat_video">Video</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Services -->
+        <section class="py-16 px-4 bg-[var(--bg-card)] observe">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-header">
+                    <h2 class="text-heading" data-i18n="featured_services">Featured Services</h2><a
+                        href="marketplace.html" class="section-link" data-i18n="view_all">View All <i
+                            class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <div class="scroll-row">
+                    <div
+                        class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72">
+                        <img src="https://picsum.photos/seed/svc1/400/240" alt="Service"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4"><span class="badge badge-blue mb-2" data-i18n="cat_design">Design</span>
+                            <h3 class="font-bold mb-1" data-i18n="svc_1_title">Professional Logo Design</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=1" class="w-6 h-6 rounded-full" alt=""><span data-i18n="svc_1_author">Alex K.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★★ <span
+                                        class="text-[var(--text-secondary)]">(128)</span></div>
+                                <div class="font-bold text-primary" data-price="49">$49</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72">
+                        <img src="https://picsum.photos/seed/svc2/400/240" alt="Service"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4"><span class="badge badge-purple mb-2"
+                                data-i18n="cat_development">Development</span>
+                            <h3 class="font-bold mb-1" data-i18n="svc_2_title">WordPress Website Setup</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=2" class="w-6 h-6 rounded-full" alt=""><span data-i18n="svc_2_author">Maria S.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★☆ <span
+                                        class="text-[var(--text-secondary)]">(89)</span></div>
+                                <div class="font-bold text-primary" data-price="129">$129</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72">
+                        <img src="https://picsum.photos/seed/svc3/400/240" alt="Service"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4"><span class="badge badge-green mb-2" data-i18n="cat_writing">Writing</span>
+                            <h3 class="font-bold mb-1" data-i18n="svc_3_title">SEO Blog Articles (5 Pack)</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=3" class="w-6 h-6 rounded-full" alt=""><span data-i18n="svc_3_author">James W.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★★ <span
+                                        class="text-[var(--text-secondary)]">(204)</span></div>
+                                <div class="font-bold text-primary" data-price="79">$79</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg)] border border-[var(--border)] rounded-xl overflow-hidden w-72">
+                        <img src="https://picsum.photos/seed/svc4/400/240" alt="Service"
+                            class="w-full h-40 object-cover">
+                        <div class="p-4"><span class="badge badge-orange mb-2"
+                                data-i18n="cat_marketing">Marketing</span>
+                            <h3 class="font-bold mb-1" data-i18n="svc_4_title">Social Media Management</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=4" class="w-6 h-6 rounded-full" alt=""><span data-i18n="svc_4_author">Sara L.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★☆ <span
+                                        class="text-[var(--text-secondary)]">(67)</span></div>
+                                <div class="font-bold text-primary" data-price="199">$199</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Products -->
+        <section class="py-16 px-4 observe">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-header">
+                    <h2 class="text-heading" data-i18n="featured_products">Featured Products</h2><a
+                        href="marketplace.html" class="section-link" data-i18n="view_all">View All <i
+                            class="fas fa-arrow-right text-sm"></i></a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+                        <img src="https://picsum.photos/seed/prod1/400/240" alt="Product"
+                            class="w-full h-44 object-cover">
+                        <div class="p-4"><span class="badge badge-purple mb-2" data-i18n="badge_ui_kit">UI Kit</span>
+                            <h3 class="font-bold mb-1" data-i18n="prod_1_title">Premium Dashboard UI Kit</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=5" class="w-6 h-6 rounded-full" alt=""><span data-i18n="prod_1_author">Chris D.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★★ <span
+                                        class="text-[var(--text-secondary)]">(312)</span></div>
+                                <div class="font-bold text-primary" data-price="39">$39</div>
+                            </div><button onclick="addToCart({id:'p1',title:'Premium Dashboard UI Kit',price:39})"
+                                class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+                        <img src="https://picsum.photos/seed/prod2/400/240" alt="Product"
+                            class="w-full h-44 object-cover">
+                        <div class="p-4"><span class="badge badge-blue mb-2" data-i18n="badge_template">Template</span>
+                            <h3 class="font-bold mb-1" data-i18n="prod_2_title">React Admin Template</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=6" class="w-6 h-6 rounded-full" alt=""><span data-i18n="prod_2_author">Dev Studio</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★☆ <span
+                                        class="text-[var(--text-secondary)]">(156)</span></div>
+                                <div class="font-bold text-primary" data-price="59">$59</div>
+                            </div><button onclick="addToCart({id:'p2',title:'React Admin Template',price:59})"
+                                class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+                        <img src="https://picsum.photos/seed/prod3/400/240" alt="Product"
+                            class="w-full h-44 object-cover">
+                        <div class="p-4"><span class="badge badge-green mb-2" data-i18n="badge_ebook">eBook</span>
+                            <h3 class="font-bold mb-1" data-i18n="prod_3_title">Marketing Mastery Guide</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=7" class="w-6 h-6 rounded-full" alt=""><span data-i18n="prod_3_author">Lisa M.</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★★ <span
+                                        class="text-[var(--text-secondary)]">(98)</span></div>
+                                <div class="font-bold text-primary" data-price="24">$24</div>
+                            </div><button onclick="addToCart({id:'p3',title:'Marketing Mastery Guide',price:24})"
+                                class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div
+                        class="card-hover bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+                        <img src="https://picsum.photos/seed/prod4/400/240" alt="Product"
+                            class="w-full h-44 object-cover">
+                        <div class="p-4"><span class="badge badge-orange mb-2" data-i18n="badge_audio">Audio</span>
+                            <h3 class="font-bold mb-1" data-i18n="prod_4_title">Lo-Fi Music Pack (50 Tracks)</h3>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] mb-2"><img
+                                    src="https://i.pravatar.cc/32?img=8" class="w-6 h-6 rounded-full" alt=""><span data-i18n="prod_4_author">BeatMaker</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="stars text-sm">★★★★☆ <span
+                                        class="text-[var(--text-secondary)]">(73)</span></div>
+                                <div class="font-bold text-primary" data-price="19">$19</div>
+                            </div><button onclick="addToCart({id:'p4',title:'Lo-Fi Music Pack',price:19})"
+                                class="btn-primary w-full mt-3 text-sm" data-i18n="add_to_cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- How it works -->
+        <section class="py-16 px-4 bg-[var(--bg-card)] observe">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-800 mb-12" data-i18n="how_it_works">How It Works</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex items-center justify-center text-primary text-3xl">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" data-i18n="how_1_title">1. Register</h3>
+                        <p class="text-[var(--text-secondary)]" data-i18n="how_1_desc">Create your free account in
+                            seconds and set up your profile.</p>
+                    </div>
+                    <div>
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center text-accent text-3xl">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" data-i18n="how_2_title">2. List or Browse</h3>
+                        <p class="text-[var(--text-secondary)]" data-i18n="how_2_desc">List your digital products or
+                            browse thousands of offerings.</p>
+                    </div>
+                    <div>
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center text-green-600 text-3xl">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" data-i18n="how_3_title">3. Buy or Sell</h3>
+                        <p class="text-[var(--text-secondary)]" data-i18n="how_3_desc">Secure transactions with instant
+                            digital delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="py-16 px-4 observe">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-800 text-center mb-12" data-i18n="testimonials_title">What Our Users Say</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover">
+                        <div class="stars mb-3">â˜…â˜…â˜…â˜…â˜…</div>
+                        <p class="text-[var(--text-secondary)] mb-4" data-i18n="testimonial_1_desc">"DigitalValley transformed my freelance career. I've earned over $50K selling design assets here!"</p>
+                        <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=10"
+                                class="w-10 h-10 rounded-full" alt="">
+                            <div>
+                                <div class="font-bold" data-i18n="testimonial_1_author">Emma R.</div>
+                                <div class="text-sm text-[var(--text-secondary)]" data-i18n="testimonial_1_role">Graphic Designer</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover">
+                        <div class="stars mb-3">â˜…â˜…â˜…â˜…â˜…</div>
+                        <p class="text-[var(--text-secondary)] mb-4" data-i18n="testimonial_2_desc">"Best platform for buying quality code templates. The review system helps find top sellers."</p>
+                        <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=12"
+                                class="w-10 h-10 rounded-full" alt="">
+                            <div>
+                                <div class="font-bold" data-i18n="testimonial_2_author">Marcus T.</div>
+                                <div class="text-sm text-[var(--text-secondary)]" data-i18n="testimonial_2_role">Startup Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 card-hover">
+                        <div class="stars mb-3">â˜…â˜…â˜…â˜…â˜†</div>
+                        <p class="text-[var(--text-secondary)] mb-4" data-i18n="testimonial_3_desc">"I love how easy it is to set up a shop and start selling. Great support team too!"</p>
+                        <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/40?img=15"
+                                class="w-10 h-10 rounded-full" alt="">
+                            <div>
+                                <div class="font-bold" data-i18n="testimonial_3_author">Priya K.</div>
+                                <div class="text-sm text-[var(--text-secondary)]" data-i18n="testimonial_3_role">Content Creator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Banner -->
+        <section class="py-16 px-4 hero-gradient text-white text-center">
+            <div class="max-w-3xl mx-auto relative z-10">
+                <h2 class="text-3xl md:text-4xl font-800 mb-4" data-i18n="cta_title">Ready to Start?</h2>
+                <p class="text-blue-100 text-lg mb-8" data-i18n="cta_desc">Join our community of creators and start
+                    earning today.</p>
+                <a href="register.html"
+                    class="bg-white text-primary font-bold px-10 py-4 rounded-xl text-lg hover:bg-blue-50 transition inline-block"
+                    data-i18n="cta_btn">Create Free Account</a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div><a href="index.html" class="flex items-center gap-2 font-bold text-xl mb-3"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+                <p class="text-[var(--text-secondary)] text-sm" data-i18n="footer_desc">The premier marketplace for
+                    digital products and freelance services.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_company">Company</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="about.html"
+                        class="hover:text-primary transition" data-i18n="footer_about">About</a><a href="contact.html"
+                        class="hover:text-primary transition" data-i18n="footer_contact">Contact</a><a href="careers.html"
+                        class="hover:text-primary transition" data-i18n="footer_careers">Careers</a></div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_legal">Legal</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="privacy.html"
+                        class="hover:text-primary transition" data-i18n="footer_privacy">Privacy Policy</a><a href="terms.html"
+                        class="hover:text-primary transition" data-i18n="footer_terms">Terms of Service</a><a href="cookies.html"
+                        class="hover:text-primary transition" data-i18n="footer_cookie">Cookie Policy</a></div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_follow">Follow Us</h4>
+                <div class="flex gap-3 text-lg">
+                    <a href="https://www.facebook.com/DigitalValleyDZ/" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/digitalvalleydz/" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--text-secondary)]"
+            data-i18n="footer_rights">Â© 2026 DigitalValley. All rights reserved.</div>
+    </footer>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+<script src="js/api.js"></script>`n</body>
+
 </html>
+
 

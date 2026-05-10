@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title data-i18n="cookies_title">Cookie Policy — DigitalValley</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563EB', accent: '#7C3AED' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } }</script>
+</head>
+<body class="font-sans">
+    <nav class="navbar px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a><a href="marketplace.html" class="nav-link" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="nav-link" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="nav-link" data-i18n="nav_dashboard">Dashboard</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+                <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+                </div>
+                <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                    <a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
+                </div>
+                <button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
+                <a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
+                <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col gap-1 mb-6">
+            <a href="index.html" data-i18n="nav_home">Home</a><a href="marketplace.html" data-i18n="nav_marketplace">Marketplace</a><a href="about.html" data-i18n="footer_about">About</a><a href="contact.html" data-i18n="footer_contact">Contact</a><a href="sell.html" data-i18n="nav_sell">Sell</a><a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a><a href="login.html" data-i18n="nav_login">Login</a>
+        </div>
+        
+        <!-- Mobile Switchers -->
+        <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Language</span>
+                <div class="flex gap-3">
+                    <a href="#" class="lang-btn text-sm" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="fr">FR</a>
+                    <a href="#" class="lang-btn text-sm" data-lang="ar">AR</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Currency</span>
+                <div class="flex gap-3">
+                    <a href="#" class="curr-btn text-sm" data-curr="USD">USD</a>
+                    <a href="#" class="curr-btn text-sm" data-curr="DZD">DZD</a>
+                </div>
+            </div>
+            <div class="flex items-center justify-between px-2">
+                <span class="text-sm font-medium text-[var(--text-secondary)]">Theme</span>
+                <button class="dark-toggle icon-btn !bg-[var(--border-light)]"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <main class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <header class="mb-12 text-center animate-fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-900 mb-4 text-gradient" data-i18n="footer_cookie">Cookie Policy</h1>
+                <p class="text-[var(--text-secondary)] text-lg" data-i18n="cookies_intro_content">Cookies are small text files stored on your device to enhance your browsing experience.</p>
+            </header>
+
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Sidebar TOC -->
+                <aside class="lg:col-span-1 hidden lg:block sticky top-24 h-fit animate-fade-in-up delay-1">
+                    <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6">
+                        <h2 class="font-800 mb-4 text-primary uppercase text-xs tracking-widest" data-i18n="privacy_toc_title">Table of Contents</h2>
+                        <ul class="space-y-3 text-sm font-medium">
+                            <li><a href="#definition" class="hover:text-primary transition flex items-center gap-2"><i class="fas fa-cookie-bite w-4"></i><span data-i18n="cookies_intro_title">What are Cookies</span></a></li>
+                            <li><a href="#usage" class="hover:text-primary transition flex items-center gap-2"><i class="fas fa-chart-line w-4"></i><span data-i18n="cookies_usage_title">How We Use Them</span></a></li>
+                            <li><a href="#types" class="hover:text-primary transition flex items-center gap-2"><i class="fas fa-layer-group w-4"></i><span data-i18n="cookies_types_title">Types of Cookies</span></a></li>
+                            <li><a href="#control" class="hover:text-primary transition flex items-center gap-2"><i class="fas fa-sliders w-4"></i><span data-i18n="cookies_control_title">How to Control</span></a></li>
+                            <li><a href="#updates" class="hover:text-primary transition flex items-center gap-2"><i class="fas fa-sync w-4"></i><span data-i18n="cookies_updates_title">Updates</span></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Content -->
+                <div class="lg:col-span-3 space-y-12 animate-fade-in-up delay-2">
+                    <section id="definition" class="scroll-mt-24">
+                        <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 card-hover">
+                            <h2 class="text-2xl font-800 mb-4 flex items-center gap-3"><i class="fas fa-cookie-bite text-primary"></i><span data-i18n="cookies_intro_title">What are Cookies</span></h2>
+                            <p class="text-[var(--text-secondary)] leading-relaxed" data-i18n="cookies_intro_content"></p>
+                        </div>
+                    </section>
+
+                    <section id="usage" class="scroll-mt-24">
+                        <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 card-hover">
+                            <h2 class="text-2xl font-800 mb-4 flex items-center gap-3"><i class="fas fa-chart-line text-primary"></i><span data-i18n="cookies_usage_title">How We Use Them</span></h2>
+                            <p class="text-[var(--text-secondary)] leading-relaxed" data-i18n="cookies_usage_content"></p>
+                        </div>
+                    </section>
+
+                    <section id="types" class="scroll-mt-24">
+                        <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 card-hover">
+                            <h2 class="text-2xl font-800 mb-6 flex items-center gap-3"><i class="fas fa-layer-group text-primary"></i><span data-i18n="cookies_types_title">Types of Cookies We Use</span></h2>
+                            <div class="space-y-6">
+                                <div class="bg-[var(--bg)] p-5 rounded-xl border border-[var(--border)]">
+                                    <h3 class="font-bold mb-2 text-primary" data-i18n="cookies_essential_title">Essential Cookies</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-i18n="cookies_essential_desc"></p>
+                                </div>
+                                <div class="bg-[var(--bg)] p-5 rounded-xl border border-[var(--border)]">
+                                    <h3 class="font-bold mb-2 text-primary" data-i18n="cookies_functional_title">Functional Cookies</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-i18n="cookies_functional_desc"></p>
+                                </div>
+                                <div class="bg-[var(--bg)] p-5 rounded-xl border border-[var(--border)]">
+                                    <h3 class="font-bold mb-2 text-primary" data-i18n="cookies_analytics_title">Analytics Cookies</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-i18n="cookies_analytics_desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="control" class="scroll-mt-24">
+                        <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 card-hover">
+                            <h2 class="text-2xl font-800 mb-4 flex items-center gap-3"><i class="fas fa-sliders text-primary"></i><span data-i18n="cookies_control_title">How to Control Cookies</span></h2>
+                            <p class="text-[var(--text-secondary)] leading-relaxed" data-i18n="cookies_control_content"></p>
+                        </div>
+                    </section>
+
+                    <section id="updates" class="scroll-mt-24">
+                        <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 card-hover">
+                            <h2 class="text-2xl font-800 mb-4 flex items-center gap-3"><i class="fas fa-sync text-primary"></i><span data-i18n="cookies_updates_title">Policy Updates</span></h2>
+                            <p class="text-[var(--text-secondary)] leading-relaxed mb-6" data-i18n="cookies_updates_content"></p>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                                <h3 class="font-bold mb-4 flex items-center gap-2 text-blue-700 dark:text-blue-300"><i class="fas fa-envelope"></i><span data-i18n="cookies_contact_title">Contact Us</span></h3>
+                                <p class="text-sm font-medium text-blue-800 dark:text-blue-200">digitalvalleydz@gmail.com — +213 542 56 10 53</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 px-4 border-t border-[var(--border)] mt-12 bg-[var(--bg-card)]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div><a href="index.html" class="flex items-center gap-2 font-bold text-xl mb-3"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+                <p class="text-[var(--text-secondary)] text-sm" data-i18n="footer_desc">The premier marketplace for digital products and freelance services.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_company">Company</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]"><a href="about.html" class="hover:text-primary transition" data-i18n="footer_about">About</a><a href="contact.html" class="hover:text-primary transition" data-i18n="footer_contact">Contact</a><a href="careers.html" class="hover:text-primary transition" data-i18n="footer_careers">Careers</a></div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_legal">Legal</h4>
+                <div class="flex flex-col gap-2 text-sm text-[var(--text-secondary)]">
+                    <a href="privacy.html" class="hover:text-primary transition" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-primary transition" data-i18n="footer_terms">Terms of Service</a>
+                    <a href="cookies.html" class="hover:text-primary transition font-bold" data-i18n="footer_cookie">Cookie Policy</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3" data-i18n="footer_follow">Follow Us</h4>
+                <div class="flex gap-3 text-lg">
+                    <a href="https://www.facebook.com/DigitalValleyDZ/" class="hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/digitalvalleydz/" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@digitalvalleydz" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--text-secondary)]" data-i18n="footer_rights">© 2026 DigitalValley. All rights reserved.</div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+<script src="js/api.js"></script>`n</body>
+</html>
+

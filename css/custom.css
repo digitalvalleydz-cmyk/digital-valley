@@ -670,3 +670,5 @@ html[dir="rtl"] .ml-auto {
   unicode-bidi: embed !important;
   display: inline-block !important;
 }
+
+.ar { font-family: 'Cairo', 'Inter', sans-serif !important; }
