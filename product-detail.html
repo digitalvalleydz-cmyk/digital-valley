@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Custom Logo & Brand Identity — DigitalValley</title>
+    <title data-i18n="mkt_prod_1_title">Custom Logo & Brand Identity — DigitalValley</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +31,7 @@
                     <a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
                 </div>
                 <button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
-                <a href="login.html" class="btn-outline text-sm hidden md:inline-block" data-i18n="nav_login">Login</a>
+                <a href="product-detail.html" class="btn-outline w-full text-sm text-center block" data-i18n="view_details">View Details</a>
                 <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -49,7 +49,7 @@
         <!-- Mobile Switchers -->
         <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-4">
             <div class="flex items-center justify-between px-2">
-                <span class="text-sm font-medium text-[var(--text-secondary)]">Language</span>
+                <span class="text-sm font-medium text-[var(--text-secondary)]" data-i18n="language_label">Language</span>
                 <div class="flex gap-3">
                     <a href="#" class="lang-btn text-sm" data-lang="en">EN</a>
                     <a href="#" class="lang-btn text-sm" data-lang="fr">FR</a>
@@ -57,14 +57,14 @@
                 </div>
             </div>
             <div class="flex items-center justify-between px-2">
-                <span class="text-sm font-medium text-[var(--text-secondary)]">Currency</span>
+                <span class="text-sm font-medium text-[var(--text-secondary)]" data-i18n="currency_label">Currency</span>
                 <div class="flex gap-3">
                     <a href="#" class="curr-btn text-sm" data-curr="USD">USD</a>
                     <a href="#" class="curr-btn text-sm" data-curr="DZD">DZD</a>
                 </div>
             </div>
             <div class="flex items-center justify-between px-2">
-                <span class="text-sm font-medium text-[var(--text-secondary)]">Theme</span>
+                <span class="text-sm font-medium text-[var(--text-secondary)]" data-i18n="theme_label">Theme</span>
                 <button class="dark-toggle icon-btn !bg-[var(--border-light)]"><i class="fas fa-moon"></i></button>
             </div>
         </div>
@@ -85,27 +85,27 @@
                 <section class="mt-8">
                     <h2 class="text-xl font-800 mb-4" data-i18n="mkt_description">Description</h2>
                     <div class="text-[var(--text-secondary)] space-y-3">
-                        <p>Get a professional, unique logo and complete brand identity package that will make your business stand out. This service includes:</p>
+                        <p data-i18n="mkt_prod_1_desc">Get a professional, unique logo and complete brand identity package that will make your business stand out. This service includes:</p>
                         <ul class="list-disc pl-5 space-y-1">
-                            <li>3 initial logo concepts</li>
-                            <li>Unlimited revisions until you're satisfied</li>
-                            <li>Full brand guidelines document</li>
-                            <li>All source files (AI, EPS, SVG, PNG)</li>
-                            <li>Business card design</li>
-                            <li>Social media kit</li>
+                            <li data-i18n="mkt_prod_1_feat1">3 initial logo concepts</li>
+                            <li data-i18n="mkt_prod_1_feat2">Unlimited revisions until you're satisfied</li>
+                            <li data-i18n="mkt_prod_1_feat3">Full brand guidelines document</li>
+                            <li data-i18n="mkt_prod_1_feat4">All source files (AI, EPS, SVG, PNG)</li>
+                            <li data-i18n="mkt_prod_1_feat5">Business card design</li>
+                            <li data-i18n="mkt_prod_1_feat6">Social media kit</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="mt-12">
-                    <h2 class="text-xl font-800 mb-6" data-i18n="mkt_reviews">Reviews (215)</h2>
+                    <h2 class="text-xl font-800 mb-6"><span data-i18n="reviews_label">Reviews</span> (215)</h2>
                     <div class="space-y-4">
                         <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5">
                             <div class="flex items-center gap-3 mb-3">
                                 <img src="https://i.pravatar.cc/40?img=33" class="w-10 h-10 rounded-full" alt="">
                                 <div>
                                     <div class="font-bold">Michael R.</div>
-                                    <div class="text-sm text-[var(--text-secondary)]">2 days ago</div>
+                                    <div class="text-sm text-[var(--text-secondary)]" data-i18n="review_time_2d">2 days ago</div>
                                 </div>
                                 <div class="ml-auto stars text-sm">
                                     <i class="fas fa-star text-yellow-400"></i>
@@ -115,14 +115,14 @@
                                     <i class="fas fa-star text-yellow-400"></i>
                                 </div>
                             </div>
-                            <p class="text-[var(--text-secondary)]">Absolutely incredible work! Anna delivered beyond my expectations. The logo perfectly captures my brand essence.</p>
+                            <p class="text-[var(--text-secondary)]" data-i18n="review_text_1">Absolutely incredible work! Anna delivered beyond my expectations. The logo perfectly captures my brand essence.</p>
                         </div>
                         <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5">
                             <div class="flex items-center gap-3 mb-3">
                                 <img src="https://i.pravatar.cc/40?img=35" class="w-10 h-10 rounded-full" alt="">
                                 <div>
                                     <div class="font-bold">Sarah L.</div>
-                                    <div class="text-sm text-[var(--text-secondary)]">1 week ago</div>
+                                    <div class="text-sm text-[var(--text-secondary)]" data-i18n="review_time_1w">1 week ago</div>
                                 </div>
                                 <div class="ml-auto stars text-sm">
                                     <i class="fas fa-star text-yellow-400"></i>
@@ -132,7 +132,7 @@
                                     <i class="fas fa-star text-yellow-400"></i>
                                 </div>
                             </div>
-                            <p class="text-[var(--text-secondary)]">Fast turnaround, great communication, and amazing quality. Highly recommended!</p>
+                            <p class="text-[var(--text-secondary)]" data-i18n="review_text_2">Fast turnaround, great communication, and amazing quality. Highly recommended!</p>
                         </div>
                     </div>
                 </section>
@@ -142,7 +142,7 @@
             <div class="lg:col-span-1">
                 <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sticky top-20">
                     <span class="badge badge-blue mb-3" data-i18n="cat_design">Design</span>
-                    <h1 class="text-2xl font-800 mb-2">Custom Logo & Brand Identity</h1>
+                    <h1 class="text-2xl font-800 mb-2" data-i18n="mkt_prod_1_title">Custom Logo & Brand Identity</h1>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="stars">
                             <i class="fas fa-star text-yellow-400"></i>
@@ -151,7 +151,7 @@
                             <i class="fas fa-star text-yellow-400"></i>
                             <i class="fas fa-star text-yellow-400"></i>
                         </div>
-                        <span class="text-[var(--text-secondary)] text-sm">(215 reviews)</span>
+                        <span class="text-[var(--text-secondary)] text-sm">(215 <span data-i18n="reviews_label">reviews</span>)</span>
                     </div>
                     <div class="text-3xl font-800 text-primary mb-4" data-price="89">$89</div>
                     
@@ -159,7 +159,7 @@
                         <img src="https://i.pravatar.cc/48?img=11" class="w-12 h-12 rounded-full" alt="">
                         <div>
                             <div class="font-bold">Anna B.</div>
-                            <div class="text-sm text-[var(--text-secondary)]">Top Rated Seller · 4.9 <i class="fas fa-star text-yellow-400"></i></div>
+                            <div class="text-sm text-[var(--text-secondary)]"><span data-i18n="top_rated_seller">Top Rated Seller</span> · 4.9 <i class="fas fa-star text-yellow-400"></i></div>
                         </div>
                     </a>
                     
@@ -189,13 +189,38 @@
                                         </div>
                                         <div>
                                             <span class="font-bold text-[12px] block" data-i18n="pay_sofizpay_name">SofizPay</span>
-                                            <span class="text-[9px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full uppercase font-bold" data-i18n="pay_coming_soon">Coming Soon</span>
+                                            <span class="text-[9px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full uppercase font-bold" data-i18n="coming_soon">Coming Soon</span>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Tooltip -->
                                 <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-[9px] rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                                    <span data-i18n="pay_sofizpay_tooltip">This service will be available soon</span>
+                                    <span data-i18n="service_unavailable_tooltip">This service will be available soon</span>
+                                </div>
+                            </div>
+
+                            <!-- Visa / Mastercard (Disabled) -->
+                            <div class="relative group cursor-not-allowed opacity-60">
+                                <div class="flex items-center justify-between border border-[var(--border)] rounded-xl p-3 bg-[var(--bg)] transition">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 text-xs">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-bold text-[12px] block">Visa / Mastercard</span>
+                                                <div class="flex gap-1 text-[14px] text-gray-400">
+                                                    <i class="fab fa-cc-visa"></i>
+                                                    <i class="fab fa-cc-mastercard"></i>
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full uppercase font-bold" data-i18n="coming_soon">Coming Soon</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tooltip -->
+                                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-[9px] rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                                    <span data-i18n="service_unavailable_tooltip">This service will be available soon</span>
                                 </div>
                             </div>
 
@@ -221,11 +246,11 @@
                     <div class="mt-6 space-y-3 text-sm">
                         <div class="flex justify-between">
                             <span class="text-[var(--text-secondary)]" data-i18n="mkt_delivery_time">Delivery Time</span>
-                            <span class="font-semibold">3-5 days</span>
+                            <span class="font-semibold" data-i18n="delivery_3_5_days">3-5 days</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-[var(--text-secondary)]" data-i18n="mkt_revisions">Revisions</span>
-                            <span class="font-semibold">Unlimited</span>
+                            <span class="font-semibold" data-i18n="unlimited">Unlimited</span>
                         </div>
                     </div>
                 </div>

@@ -158,6 +158,15 @@
 <script src="js/main.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
+        // Handle token from Google OAuth redirect
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        if (token) {
+            localStorage.setItem('dv_token', token);
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
         if (!isLoggedIn()) {
             window.location.href = 'login.html';
             return;

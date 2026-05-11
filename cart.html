@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cart â€” DigitalValley</title>
+<title data-i18n="cart_title">Cart — DigitalValley</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -118,13 +118,38 @@
                     </div>
                     <div>
                         <span class="font-bold text-sm block" data-i18n="pay_sofizpay_name">SofizPay</span>
-                        <span class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full uppercase font-bold" data-i18n="pay_coming_soon">Coming Soon</span>
+                        <span class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full uppercase font-bold" data-i18n="coming_soon">Coming Soon</span>
                     </div>
                 </div>
             </div>
             <!-- Tooltip -->
             <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-[10px] rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                <span data-i18n="pay_sofizpay_tooltip">This service will be available soon</span>
+                <span data-i18n="service_unavailable_tooltip">This service will be available soon</span>
+            </div>
+        </div>
+
+        <!-- Visa / Mastercard (Disabled) -->
+        <div class="relative group cursor-not-allowed opacity-60">
+            <div class="flex items-center justify-between border border-[var(--border)] rounded-xl p-4 bg-[var(--bg)] transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-400">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-sm block">Visa / Mastercard</span>
+                            <div class="flex gap-1.5 text-lg text-gray-400">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                        </div>
+                        <span class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full uppercase font-bold" data-i18n="coming_soon">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Tooltip -->
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 text-white text-[10px] rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                <span data-i18n="service_unavailable_tooltip">هذه الخدمة ستكون متاحة قريباً</span>
             </div>
         </div>
 
@@ -195,7 +220,10 @@ function renderCart() {
   container.innerHTML = cart.map(item => `
     <div class="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-4 flex items-center gap-4">
       <div class="w-16 h-16 bg-[var(--bg)] rounded-lg flex items-center justify-center text-2xl text-primary"><i class="fas fa-box"></i></div>
-      <div class="flex-1"><h3 class="font-bold">${item.title}</h3><p class="text-sm text-[var(--text-secondary)]">Digital Product</p></div>
+      <div class="flex-1">
+        <h3 class="font-bold">${item.title}</h3>
+        <p class="text-sm text-[var(--text-secondary)]" data-i18n="cart_digital_prod">${translations[localStorage.getItem('lang') || 'en'].cart_digital_prod}</p>
+      </div>
       <div class="text-lg font-800 text-primary" data-price="${item.price}">$${item.price}</div>
       <button onclick="removeFromCart('${item.id}');renderCart()" class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition"><i class="fas fa-trash"></i></button>
     </div>`).join('');
@@ -215,8 +243,8 @@ function updateTotals(subtotal) {
 }
 renderCart();
 document.getElementById('checkout-btn').addEventListener('click', () => {
-  if (!getCart().length) return showToast('Cart is empty');
-  showToast('Order placed successfully! ðŸŽ‰');
+  if (!getCart().length) return showToast(translations[localStorage.getItem('lang') || 'en'].cart_toast_empty);
+  showToast(translations[localStorage.getItem('lang') || 'en'].cart_toast_success);
   localStorage.removeItem('cart');
   renderCart();
   updateCartCount();
