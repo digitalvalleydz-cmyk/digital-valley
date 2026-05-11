@@ -74,6 +74,10 @@
 <label class="flex items-center gap-2 mb-6 text-sm"><input type="checkbox" class="accent-primary" required> <span data-i18n="agree_terms">I agree to the </span><a href="terms.html" class="text-primary hover:underline" data-i18n="link_terms">Terms</a><span data-i18n="agree_and"> & </span><a href="privacy.html" class="text-primary hover:underline" data-i18n="footer_privacy">Privacy Policy</a></label>
 <button type="submit" class="btn-primary w-full py-3" data-i18n="register_title">Create Account</button>
 <div class="mt-6 text-center text-sm text-[var(--text-secondary)]"><span data-i18n="has_account">Already have an account?</span> <a href="login.html" class="text-primary font-semibold hover:underline" data-i18n="btn_signin">Sign In</a></div>
+<div class="mt-6 flex items-center gap-3"><div class="flex-1 h-px bg-[var(--border)]"></div><span class="text-sm text-[var(--text-secondary)]" data-i18n="text_or">or</span><div class="flex-1 h-px bg-[var(--border)]"></div></div>
+<div class="mt-4">
+<a id="googleRegBtn" href="#" class="w-full py-2.5 border border-[var(--border)] rounded-lg font-medium text-sm hover:bg-[var(--bg)] transition flex items-center justify-center gap-2"><i class="fab fa-google text-red-500"></i> <span data-i18n="btn_google">Google</span></a>
+</div>
 </form>
 </div>
 </main>
@@ -143,6 +147,12 @@
             btn.innerText = 'Create Account';
         }
     });
+
+    // Dynamic Google Auth URL
+    const googleAuthURL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:5000/api/auth/google'
+      : 'https://digital-valley-dz.up.railway.app/api/auth/google';
+    document.getElementById('googleRegBtn').href = googleAuthURL;
 
     // Clear error on input
     document.querySelectorAll('input').forEach(input => {
