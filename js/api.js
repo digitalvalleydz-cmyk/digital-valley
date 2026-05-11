@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api' 
+  : 'https://digital-valley-dz.up.railway.app/api';
 
 // Helper: JWT token management
 function saveToken(token) {
