@@ -192,6 +192,15 @@ async function updateProfile(data) {
 
 // Global UI Initialization
 document.addEventListener('DOMContentLoaded', async () => {
+    // Check if token is in URL (from Google OAuth)
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    if (token) {
+        saveToken(token);
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     const user = await getCurrentUser();
     updateNavbarUI(user);
 });

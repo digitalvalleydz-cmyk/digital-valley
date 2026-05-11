@@ -148,7 +148,8 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
     const token = generateToken(req.user._id);
     
     // Redirect to frontend dashboard with token in URL
-    res.redirect(`file:///D:/AI/digital-marketplace/dashboard.html?token=${token}`);
+    const clientURL = process.env.CLIENT_URL || 'http://localhost:5500';
+    res.redirect(`${clientURL}/dashboard.html?token=${token}`);
 });
 
 module.exports = router;
