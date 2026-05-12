@@ -1,6 +1,8 @@
-const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const isLocal = window.location.hostname === 'localhost' || 
+                window.location.hostname === '127.0.0.1' || 
+                window.location.hostname === '';
 const API_URL = isLocal 
-  ? 'http://localhost:5000/api' 
+  ? 'http://127.0.0.1:5000/api' 
   : 'https://digital-valley-dz.up.railway.app/api';
 
 // Helper: JWT token management
@@ -187,6 +189,163 @@ async function updateProfile(data) {
         return await response.json();
     } catch (err) {
         console.error('Update Profile Error:', err.message);
+        throw err;
+    }
+}
+
+// --- Report Functions ---
+
+async function submitReport(reportData) {
+    try {
+        const response = await fetch(`${API_URL}/reports`, {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(reportData)
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Report submission failed');
+        return data;
+    } catch (err) {
+        console.error('Submit Report Error:', err.message);
+        throw err;
+    }
+}
+
+async function getReports() {
+    try {
+        const response = await fetch(`${API_URL}/reports`, {
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to fetch reports');
+        return await response.json();
+    } catch (err) {
+        console.error('Get Reports Error:', err.message);
+        throw err;
+    }
+}
+
+// --- Admin Functions ---
+
+async function getAdminStats() {
+    try {
+        const response = await fetch(`${API_URL}/admin/stats`, {
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to fetch admin stats');
+        return await response.json();
+    } catch (err) {
+        console.error('Admin Stats Error:', err.message);
+        throw err;
+    }
+}
+
+async function getAdminUsers() {
+    try {
+        const response = await fetch(`${API_URL}/admin/users`, {
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to fetch admin users');
+        return await response.json();
+    } catch (err) {
+        console.error('Admin Users Error:', err.message);
+        throw err;
+    }
+}
+
+async function updateAdminUserStatus(id, isActive) {
+    try {
+        const response = await fetch(`${API_URL}/admin/users/${id}/status`, {
+            method: 'PUT',
+            headers: getHeaders(),
+            body: JSON.stringify({ isActive })
+        });
+        if (!response.ok) throw new Error('Failed to update user status');
+        return await response.json();
+    } catch (err) {
+        console.error('Update User Status Error:', err.message);
+        throw err;
+    }
+}
+
+async function deleteAdminUser(id) {
+    try {
+        const response = await fetch(`${API_URL}/admin/users/${id}`, {
+            method: 'DELETE',
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to delete user');
+        return await response.json();
+    } catch (err) {
+        console.error('Delete User Error:', err.message);
+        throw err;
+    }
+}
+
+async function getAdminPendingProducts() {
+    try {
+        const response = await fetch(`${API_URL}/admin/products/pending`, {
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to fetch pending products');
+        return await response.json();
+    } catch (err) {
+        console.error('Admin Pending Products Error:', err.message);
+        throw err;
+    }
+}
+
+async function getAdminProducts() {
+    try {
+        const response = await fetch(`${API_URL}/admin/products`, {
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to fetch all products');
+        return await response.json();
+    } catch (err) {
+        console.error('Admin All Products Error:', err.message);
+        throw err;
+    }
+}
+
+async function approveProduct(id) {
+    try {
+        const response = await fetch(`${API_URL}/admin/products/${id}/approve`, {
+            method: 'PUT',
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to approve product');
+        return await response.json();
+    } catch (err) {
+        console.error('Approve Product Error:', err.message);
+        throw err;
+    }
+}
+
+async function rejectProduct(id, reason) {
+    try {
+        const response = await fetch(`${API_URL}/admin/products/${id}/reject`, {
+            method: 'PUT',
+            headers: getHeaders(),
+            body: JSON.stringify({ reason })
+        });
+        if (!response.ok) throw new Error('Failed to reject product');
+        return await response.json();
+    } catch (err) {
+        console.error('Reject Product Error:', err.message);
+        throw err;
+    }
+}
+
+async function deleteAdminProduct(id) {
+    try {
+        const response = await fetch(`${API_URL}/admin/products/${id}`, {
+            method: 'DELETE',
+            headers: getHeaders()
+        });
+        if (!response.ok) throw new Error('Failed to delete product');
+        return await response.json();
+    } catch (err) {
+        console.error('Delete Product Error:', err.message);
         throw err;
     }
 }

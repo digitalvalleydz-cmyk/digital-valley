@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin Dashboard — DigitalValley</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        primary: '#2563EB', 
+                        accent: '#7C3AED',
+                        adminBg: '#F5E6F2'
+                    }, 
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'] 
+                    } 
+                } 
+            } 
+        }
+    </script>
+    <style>
+        body { background-color: #F5E6F2; }
+        .dark body { background-color: #1a1a1a; }
+        .admin-card { @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm; }
+        .admin-table { @apply w-full text-left border-collapse; }
+        .admin-table th { @apply px-4 py-3 text-sm font-semibold text-gray-600 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700; }
+        .admin-table td { @apply px-4 py-4 text-sm text-gray-800 dark:text-gray-200 border-b border-gray-50 dark:border-gray-800; }
+        .status-badge { @apply px-2 py-1 rounded-full text-xs font-bold uppercase; }
+        .status-pending { @apply bg-yellow-100 text-yellow-700; }
+        .status-active { @apply bg-green-100 text-green-700; }
+        .status-rejected { @apply bg-red-100 text-red-700; }
+        .sidebar-link { @apply flex items-center gap-3 px-4 py-3 rounded-xl transition text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50 hover:text-primary; }
+        .sidebar-link.active { @apply bg-white dark:bg-gray-800 text-primary shadow-sm font-semibold; }
+    </style>
+</head>
+<body class="font-sans min-h-screen">
+    <!-- Navbar (Hidden/Simplified for Admin) -->
+    <nav class="admin-navbar px-4 lg:px-8 py-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-xl">
+                <img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md">
+                <span class="text-primary">Admin</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <button class="dark-toggle p-2 hover:text-primary transition"><i class="fas fa-moon"></i></button>
+                <div id="admin-info" class="flex items-center gap-2 border-l border-gray-200 dark:border-gray-700 pl-4">
+                    <!-- Loaded via JS -->
+                </div>
+                <button onclick="logout()" class="text-sm font-bold text-red-500 hover:text-red-600 transition">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 py-8 grid lg:grid-cols-4 gap-8">
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1 space-y-2">
+            <button onclick="showSection('dashboard')" class="sidebar-link active w-full" id="link-dashboard">
+                <i class="fas fa-chart-pie"></i> Dashboard
+            </button>
+            <button onclick="showSection('users')" class="sidebar-link w-full" id="link-users">
+                <i class="fas fa-users"></i> Users Management
+            </button>
+            <button onclick="showSection('products')" class="sidebar-link w-full" id="link-products">
+                <i class="fas fa-box"></i> Products Management
+            </button>
+            <button onclick="showSection('reports')" class="sidebar-link w-full" id="link-reports">
+                <i class="fas fa-flag"></i> Pending Reports
+            </button>
+            <div class="pt-6 border-t border-gray-200 dark:border-gray-700 mt-6">
+                <a href="index.html" class="sidebar-link w-full">
+                    <i class="fas fa-external-link-alt"></i> Back to Site
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lg:col-span-3">
+            <!-- Dashboard Section -->
+            <section id="section-dashboard" class="space-y-8">
+                <h1 class="text-3xl font-800 text-gray-900 dark:text-white">Dashboard Overview</h1>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="admin-card text-center">
+                        <div class="text-gray-500 text-sm mb-1 uppercase font-bold tracking-wider">Total Users</div>
+                        <div class="text-3xl font-800 text-primary" id="stat-users">0</div>
+                    </div>
+                    <div class="admin-card text-center">
+                        <div class="text-gray-500 text-sm mb-1 uppercase font-bold tracking-wider">Total Products</div>
+                        <div class="text-3xl font-800 text-accent" id="stat-products">0</div>
+                    </div>
+                    <div class="admin-card text-center">
+                        <div class="text-gray-500 text-sm mb-1 uppercase font-bold tracking-wider">Total Orders</div>
+                        <div class="text-3xl font-800 text-blue-500" id="stat-orders">0</div>
+                    </div>
+                    <div class="admin-card text-center">
+                        <div class="text-gray-500 text-sm mb-1 uppercase font-bold tracking-wider">Pending Reports</div>
+                        <div class="text-3xl font-800 text-red-500" id="stat-reports">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="section-users" class="hidden space-y-6">
+                <h2 class="text-2xl font-800 text-gray-900 dark:text-white">Users Management</h2>
+                <div class="admin-card overflow-x-auto">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- JS Loaded -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="section-products" class="hidden space-y-6">
+                <h2 class="text-2xl font-800 text-gray-900 dark:text-white">Products Management</h2>
+                <div class="admin-card overflow-x-auto">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Seller</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body">
+                            <!-- JS Loaded -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="section-reports" class="hidden space-y-6">
+                <h2 class="text-2xl font-800 text-gray-900 dark:text-white">Pending Reports</h2>
+                <div class="admin-card overflow-x-auto">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Reporter</th>
+                                <th>Reason</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reports-table-body">
+                            <!-- JS Loaded -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Reject Modal -->
+    <div id="reject-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[100] p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-md shadow-2xl">
+            <h3 class="text-xl font-bold mb-4 dark:text-white">Reject Product</h3>
+            <textarea id="reject-reason" class="w-full h-32 p-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl mb-4 text-sm dark:text-white" placeholder="Enter reason for rejection..."></textarea>
+            <div class="flex gap-3">
+                <button onclick="closeRejectModal()" class="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition dark:text-white">Cancel</button>
+                <button id="confirm-reject-btn" class="flex-1 px-4 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition">Confirm Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

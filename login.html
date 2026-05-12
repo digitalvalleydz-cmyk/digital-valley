@@ -137,8 +137,9 @@
     });
 
     // Dynamic Google Auth URL
-    const googleAuthURL = window.location.hostname === 'localhost'
-      ? 'http://localhost:5000/api/auth/google'
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '';
+    const googleAuthURL = isLocal
+      ? 'http://127.0.0.1:5000/api/auth/google'
       : 'https://digital-valley-dz.up.railway.app/api/auth/google';
     document.getElementById('googleLoginBtn').href = googleAuthURL;
 

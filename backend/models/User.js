@@ -73,6 +73,10 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now

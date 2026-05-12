@@ -42,7 +42,7 @@ const upload = multer({
 router.get('/', async (req, res) => {
     try {
         const { category, type, minPrice, maxPrice, sort, search } = req.query;
-        let query = { isActive: true };
+        let query = { status: 'active' };
 
         // Filtering
         if (category) query.category = category;
@@ -121,7 +121,8 @@ router.post('/', auth, upload.single('thumbnail'), async (req, res) => {
             tags: tags ? JSON.parse(tags) : [],
             whatsapp: whatsapp || req.user.whatsapp,
             seller: req.user._id,
-            thumbnail: req.file ? req.file.path : 'default-thumbnail.jpg'
+            thumbnail: req.file ? req.file.path : 'default-thumbnail.jpg',
+            status: 'pending' // Force pending for review
         });
 
         await product.save();
@@ -228,7 +229,7 @@ router.post('/:id/reviews', auth, async (req, res) => {
  */
 router.get('/seller/:sellerId', async (req, res) => {
     try {
-        const products = await Product.find({ seller: req.params.sellerId, isActive: true })
+        const products = await Product.find({ seller: req.params.sellerId, status: 'active' })
             .sort({ createdAt: -1 });
         res.json(products);
     } catch (err) {
