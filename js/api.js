@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function updateNavbarUI(user) {
-    const authLinks = document.querySelector('.auth-links') || document.querySelector('nav .flex.items-center.gap-4');
+    const authLinks = document.querySelector('.auth-links');
     if (!authLinks) return;
 
     if (user) {

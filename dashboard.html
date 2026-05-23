@@ -12,25 +12,36 @@
 </head>
 <body class="font-sans">
 <nav class="navbar px-4 lg:px-8 py-3">
-<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-<a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
-<div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="index.html" class="hover:text-primary transition" data-i18n="nav_home">Home</a><a href="marketplace.html" class="hover:text-primary transition" data-i18n="nav_marketplace">Marketplace</a><a href="sell.html" class="hover:text-primary transition" data-i18n="nav_sell">Sell</a><a href="dashboard.html" class="text-primary" data-i18n="nav_dashboard">Dashboard</a></div>
-<div class="flex items-center gap-3">
-<a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
-<div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
-<a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
-<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
-<a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
-</div>
-<div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
-<a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
-<a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
-</div>
-<button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
-<a href="profile.html" class="hidden md:flex items-center gap-2"><img src="https://i.pravatar.cc/32?img=11" class="w-8 h-8 rounded-full" alt=""><span class="text-sm font-semibold">Anna B.</span></a>
-<button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-xl"><img src="images/logo.png" alt="DigitalValley" class="h-10 w-auto dark:bg-white/10 dark:p-1 dark:rounded-md"></a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+            <a href="marketplace.html" class="nav-link" data-i18n="nav_marketplace">Marketplace</a>
+            <a href="sell.html" class="nav-link" data-i18n="nav_sell">Sell</a>
+            <a href="dashboard.html" class="nav-link active" data-i18n="nav_dashboard">Dashboard</a>
+        </div>
+        <div class="hidden md:flex search-box w-72">
+            <i class="fas fa-search text-[var(--text-muted)] text-sm mr-2"></i>
+            <input type="text" placeholder="Search products & services..." data-i18n="search_placeholder" class="bg-transparent outline-none text-sm w-full text-[var(--text)]">
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="cart.html" class="icon-btn relative"><i class="fas fa-shopping-cart"></i><span class="cart-count absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center text-center leading-5 hidden">0</span></a>
+            <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                <a href="#" class="lang-btn text-sm font-bold text-primary" data-lang="en">EN</a>
+                <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="fr">FR</a>
+                <a href="#" class="lang-btn text-sm text-[var(--text-secondary)]" data-lang="ar">AR</a>
+            </div>
+            <div class="hidden md:flex items-center gap-2 border-r border-[var(--border)] pr-3 mr-1 rtl:border-r-0 rtl:border-l rtl:pr-0 rtl:pl-3 rtl:mr-0 rtl:ml-1">
+                <a href="#" class="curr-btn text-sm font-bold text-primary" data-curr="USD">USD</a>
+                <a href="#" class="curr-btn text-sm text-[var(--text-secondary)]" data-curr="DZD">DZD</a>
+            </div>
+            <button class="dark-toggle icon-btn hidden md:flex"><i class="fas fa-moon"></i></button>
+            <div class="auth-links flex items-center gap-2">
+                <!-- User profile injected here by API -->
+            </div>
+            <button id="menu-btn" class="md:hidden p-2 text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
 </nav>
 <div id="mobile-menu" class="mobile-menu">
 <button id="menu-close" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
