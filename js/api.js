@@ -1,9 +1,4 @@
-const isLocal = window.location.hostname === 'localhost' || 
-                window.location.hostname === '127.0.0.1' || 
-                window.location.hostname === '';
-const API_URL = isLocal 
-  ? 'http://127.0.0.1:5000/api' 
-  : 'https://digital-valley-dz.up.railway.app/api';
+const API_URL = 'https://digital-valley-dz.up.railway.app/api';
 
 // Helper: JWT token management
 function saveToken(token) {
