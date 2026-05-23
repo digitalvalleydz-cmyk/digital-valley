@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const passport = require('passport');
-const session = require('express-session');
 
 // Load environment variables
 dotenv.config();
@@ -17,18 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Passport & Session
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'digitalvalley_session_secret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }
-}));
-app.use(passport.initialize());
-app.use(passport.session());
 
-// Passport Config
-require('./config/passport')(passport);
 
 // Import Routes
 const authRoutes = require('./routes/auth');

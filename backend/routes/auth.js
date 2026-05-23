@@ -3,7 +3,6 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const auth = require('../middleware/auth');
-const passport = require('passport');
 
 // Helper to generate JWT
 const generateToken = (id) => {
@@ -131,25 +130,6 @@ router.post('/logout', (req, res) => {
     res.json({ message: 'Logged out successfully' });
 });
 
-/**
- * @route   GET /api/auth/google
- * @desc    Redirect to Google login
- * @access  Public
- */
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-/**
- * @route   GET /api/auth/google/callback
- * @desc    Google OAuth callback
- * @access  Public
- */
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login.html' }), (req, res) => {
-    // Generate JWT token
-    const token = generateToken(req.user._id);
-    
-    // Redirect to frontend dashboard with token in URL
-    const clientURL = process.env.CLIENT_URL || 'http://localhost:5500';
-    res.redirect(`${clientURL}/dashboard.html?token=${token}`);
-});
 
 module.exports = router;
