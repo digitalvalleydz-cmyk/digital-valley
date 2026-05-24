@@ -1,38 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
 const Product = require('../models/Product');
 const Review = require('../models/Review');
 const auth = require('../middleware/auth');
-
-// Multer configuration for thumbnail upload
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
-    }
-});
-
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|webp/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedTypes.test(file.mimetype);
-
-    if (extname && mimetype) {
-        return cb(null, true);
-    } else {
-        cb(new Error('Images only (jpg, png, webp)'));
-    }
-};
-
-const upload = multer({
-    storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
-    fileFilter
-});
+const { upload } = require('../config/cloudinary');
 
 /**
  * @route   GET /api/products
@@ -121,7 +92,7 @@ router.post('/', auth, upload.single('thumbnail'), async (req, res) => {
             tags: tags ? JSON.parse(tags) : [],
             whatsapp: whatsapp || req.user.whatsapp,
             seller: req.user._id,
-            thumbnail: req.file ? req.file.path : 'default-thumbnail.jpg',
+            thumbnail: req.file ? req.file.path : `https://picsum.photos/seed/${Date.now()}/800/600`,
             status: 'pending' // Force pending for review
         });
 
